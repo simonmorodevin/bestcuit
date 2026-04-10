@@ -17,14 +17,11 @@
   <style>
     /* ── Estilos para los modelos 3D (Añadido) ── */
     model-viewer {
-      width: 100%;
-      height: 400px;  /* Explicit height for all models */
       z-index: 1;
       --poster-color: transparent;
       outline: none;
-      border-radius: var(--radius-lg);
-      background: linear-gradient(135deg, rgba(153, 88, 28, 0.1) 0%, rgba(215, 125, 40, 0.05) 100%);
-      display: block;
+      --shadow-intensity: 1;
+      background: transparent;
     }
 
     /* ── Catalogue ────────────────────────────────────── */
@@ -495,12 +492,16 @@
           <model-viewer
             src="img/Removedor.glb"
             alt="La Touillette comestible BESTCUIT 3D"
-            style="width: 100%; height: 400px;"
+            style="width: 100%; height: 100%; position: absolute; inset: 0;"
             auto-rotate
             camera-controls
             shadow-intensity="1"
             camera-orbit="0deg 75deg 105%"
-            touch-action="pan-y">
+            exposure="1"
+            shadow-softness="0.7"
+            touch-action="pan-y"
+            loading="eager"
+            reveal="auto">
           </model-viewer>
         </div>
         <div class="product-detail reveal-right">
@@ -544,12 +545,16 @@
           <model-viewer
             src="img/Tenedor.glb"
             alt="La Fourchette comestible BESTCUIT 3D"
-            style="width: 100%; height: 400px;"
+            style="width: 100%; height: 100%; position: absolute; inset: 0;"
             auto-rotate
             camera-controls
             shadow-intensity="1"
             camera-orbit="0deg 75deg 105%"
-            touch-action="pan-y">
+            exposure="1"
+            shadow-softness="0.7"
+            touch-action="pan-y"
+            loading="eager"
+            reveal="auto">
           </model-viewer>
         </div>
         <div class="product-detail reveal-left">
@@ -573,12 +578,16 @@
           <model-viewer
             src="img/Cuchara.glb"
             alt="La Cuillère comestible BESTCUIT 3D"
-            style="width: 100%; height: 400px;"
+            style="width: 100%; height: 100%; position: absolute; inset: 0;"
             auto-rotate
             camera-controls
             shadow-intensity="1"
             camera-orbit="0deg 75deg 105%"
-            touch-action="pan-y">
+            exposure="1"
+            shadow-softness="0.7"
+            touch-action="pan-y"
+            loading="eager"
+            reveal="auto">
           </model-viewer>
         </div>
         <div class="product-detail reveal-right">
@@ -602,7 +611,7 @@
           <model-viewer
             src="img/Paletina.glb"
             alt="La Palettine comestible BESTCUIT 3D"
-            style="width: 100%; height: 400px;"
+            style="width: 100%; height: 100%; position: absolute; inset: 0;"
             scale="0.9 0.9 0.9"
             loading="eager"
             reveal="auto"
@@ -610,6 +619,8 @@
             camera-controls
             shadow-intensity="1"
             camera-orbit="0deg 75deg 150%"
+            exposure="1"
+            shadow-softness="0.7"
             touch-action="pan-y">
           </model-viewer>
         </div>
