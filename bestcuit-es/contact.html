@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto — Solicitud de información | BESTCUIT</title>
+  <meta name="description" content="Póngase en contacto con nosotros para obtener más información sobre nuestros cubiertos comestibles. Estamos aquí para responder a sus preguntas.">
+  <!-- Hreflang for international SEO -->
+  <link rel="alternate" hreflang="fr" href="https://www.bestcuit.fr/contact.html">
+  <link rel="alternate" hreflang="es" href="https://www.bestcuit.es/contact.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.bestcuit.fr/contact.html">
+  <link rel="icon" href="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=32,h=32,fit=crop,f=png/ALpPMbl95zt93znw/galleta-sin-fondo-A1a5przloocRGwKr.png">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    /* ── Contact Page ─────────────────────────────────── */
+    .contact-page {
+      min-height: 100vh;
+      background: var(--forest);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    /* LEFT: Info panel */
+    .contact-info {
+      padding: 140px 64px 80px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+    }
+    .contact-info-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 0% 30%, rgba(153, 88, 28, 0.5) 0%, transparent 60%),
+        radial-gradient(ellipse at 100% 80%, rgba(215, 125, 40, 0.08) 0%, transparent 50%);
+    }
+    .contact-info-grain {
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.07'/%3E%3C/svg%3E");
+      background-size: 200px 200px;
+      pointer-events: none;
+    }
+    .contact-info-content {
+      position: relative;
+      z-index: 2;
+    }
+    .contact-eyebrow {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--wheat);
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .contact-eyebrow::before {
+      content: '';
+      width: 28px;
+      height: 1px;
+      background: var(--wheat);
+    }
+    .contact-info h1 {
+      font-family: var(--ff-display);
+      font-size: clamp(2.5rem, 4.5vw, 4rem);
+      font-weight: 500;
+      color: var(--cream);
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-bottom: 24px;
+    }
+    .contact-info h1 em { font-style: italic; color: var(--wheat-light); }
+    .contact-info > .contact-info-content > p {
+      font-size: 1rem;
+      color: rgba(244, 218, 195, 0.6);
+      line-height: 1.75;
+      max-width: 360px;
+      margin-bottom: 48px;
+    }
+
+    /* Contact details */
+    .contact-details {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-bottom: 56px;
+    }
+    .contact-detail {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+    .contact-detail-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: rgba(215, 125, 40, 0.12);
+      border: 1px solid rgba(215, 125, 40, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--wheat);
+      flex-shrink: 0;
+    }
+    .contact-detail-text h4 {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(244, 218, 195, 0.4);
+      margin-bottom: 4px;
+    }
+    .contact-detail-text p {
+      font-size: 0.95rem;
+      color: var(--cream);
+      font-weight: 500;
+    }
+    .contact-detail-text p a {
+      color: var(--cream);
+      transition: color 0.2s;
+    }
+    .contact-detail-text p a:hover { color: var(--wheat-light); }
+
+    /* Quote */
+    .contact-quote {
+      position: relative;
+      z-index: 2;
+      border-top: 1px solid rgba(244, 218, 195, 0.1);
+      padding-top: 32px;
+    }
+    .contact-quote blockquote {
+      font-family: var(--ff-display);
+      font-size: 1.1rem;
+      font-style: italic;
+      color: rgba(244, 218, 195, 0.45);
+      line-height: 1.6;
+    }
+    .contact-quote cite {
+      display: block;
+      font-size: 0.75rem;
+      font-style: normal;
+      color: var(--wheat);
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-top: 12px;
+    }
+
+    /* RIGHT: Form panel */
+    .contact-form-panel {
+      background: var(--cream-soft);
+      padding: 140px 64px 80px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .form-header {
+      margin-bottom: 48px;
+    }
+    .form-header h2 {
+      font-family: var(--ff-display);
+      font-size: 1.75rem;
+      font-weight: 500;
+      color: var(--text);
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+    .form-header p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    /* Form styles */
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .form-group label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .form-group label span {
+      color: var(--wheat);
+    }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 14px 18px;
+      border-radius: var(--radius);
+      border: 1.5px solid rgba(212, 184, 150, 0.5);
+      background: var(--white);
+      font-family: var(--ff-body);
+      font-size: 0.95rem;
+      color: var(--text);
+      transition: all 0.25s;
+      outline: none;
+      appearance: none;
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: rgba(107, 90, 62, 0.4);
+    }
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-color: var(--wheat);
+      box-shadow: 0 0 0 4px rgba(215, 125, 40, 0.1);
+    }
+    .form-group textarea {
+      min-height: 140px;
+      resize: vertical;
+      line-height: 1.6;
+    }
+    .form-group select {
+      cursor: pointer;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236B5A3E' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 40px;
+    }
+
+    /* Privacy checkbox */
+    .form-check {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    .form-check input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      min-width: 18px;
+      border-radius: 4px;
+      border: 2px solid rgba(215, 125, 40, 0.4);
+      background: var(--white);
+      cursor: pointer;
+      margin-top: 2px;
+      padding: 0;
+      accent-color: var(--forest);
+    }
+    .form-check label {
+      font-size: 0.83rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      cursor: pointer;
+      text-transform: none;
+      letter-spacing: 0;
+    }
+    .form-check label a {
+      color: var(--wheat);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    /* Submit */
+    .form-submit {
+      margin-top: 8px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .form-submit .btn {
+      flex: 1;
+      justify-content: center;
+    }
+
+    /* Success message (hidden by default) */
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 48px 32px;
+      background: rgba(153, 88, 28, 0.06);
+      border: 1px solid rgba(153, 88, 28, 0.2);
+      border-radius: var(--radius-lg);
+    }
+    .form-success .success-icon {
+      font-size: 3rem;
+      margin-bottom: 16px;
+      display: block;
+    }
+    .form-success h3 {
+      font-family: var(--ff-display);
+      font-size: 1.5rem;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+    .form-success p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    /* ── Map/Footer section ────────────────────────────── */
+    .contact-footer-strip {
+      background: var(--cream-dark);
+      padding: 60px 0;
+    }
+    .contact-footer-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      text-align: center;
+    }
+    .cfooter-item h4 {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--wheat);
+      margin-bottom: 8px;
+    }
+    .cfooter-item p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .cfooter-item a {
+      color: var(--text);
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .cfooter-item a:hover { color: var(--wheat); }
+
+    /* Responsive */
+    @media (max-width: 1100px) {
+      .contact-page { grid-template-columns: 1fr; }
+      .contact-info { padding: 140px 48px 60px; }
+      .contact-form-panel { padding: 60px 48px 80px; }
+    }
+    @media (max-width: 600px) {
+      .contact-info { padding: 120px 24px 48px; }
+      .contact-form-panel { padding: 48px 24px 60px; }
+      .form-row { grid-template-columns: 1fr; }
+      .contact-footer-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="nav scrolled" id="nav">
+    <a href="index.html" class="nav-logo">
+      <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=64,h=64,fit=crop,f=png/ALpPMbl95zt93znw/galleta-sin-fondo-A1a5przloocRGwKr.png" alt="BESTCUIT">
+      BESTCUIT
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="a-propos.html">Acerca de</a></li>
+      <li><a href="engagement.html">Compromiso</a></li>
+      <li><a href="catalogue.html">Catálogo</a></li>
+      <li><a href="contact.html" class="active">Contacto</a></li>
+    </ul>
+    <div class="lang-switcher">
+      <a href="https://www.bestcuit.fr/contact.html" class="lang-link">FR</a>
+      <span class="lang-separator">|</span>
+      <span class="lang-link active">ES</span>
+    </div>
+    <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  </nav>
+
+  <!-- MAIN CONTACT LAYOUT -->
+  <main class="contact-page">
+
+    <!-- LEFT PANEL -->
+    <div class="contact-info">
+      <div class="contact-info-bg"></div>
+      <div class="contact-info-grain"></div>
+
+      <div class="contact-info-content">
+        <div class="contact-eyebrow">Hablemos</div>
+        <h1>Póngase en<br>contacto<br><em>para más información</em></h1>
+        <p>Estamos aquí para responder todas sus preguntas sobre nuestros cubiertos comestibles, nuestros precios y cómo integrar BESTCUIT en su establecimiento.</p>
+
+        <div class="contact-details">
+          <div class="contact-detail">
+            <div class="contact-detail-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="4" width="20" height="16" rx="2"/>
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+              </svg>
+            </div>
+            <div class="contact-detail-text">
+              <h4>Correo Electrónico</h4>
+              <p><a href="mailto:contact@bestcuit.fr">contact@bestcuit.fr</a></p>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-detail-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.6a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.61 3h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 10.6a16 16 0 0 0 6 6l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17z"/>
+              </svg>
+            </div>
+            <div class="contact-detail-text">
+              <h4>Teléfono Francia</h4>
+              <p>
+                <a href="tel:+33769710627">+33 769 71 06 27</a><br>
+                <a href="tel:+33768655465">+33 768 65 54 65</a>
+              </p>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-detail-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.6a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.61 3h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 10.6a16 16 0 0 0 6 6l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17z"/>
+              </svg>
+            </div>
+            <div class="contact-detail-text">
+              <h4>Teléfono España</h4>
+              <p><a href="tel:+34636590365">+34 636 59 03 65</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-quote">
+        <blockquote>
+          "Utilice. Coma. Sonría. Es tan simple como eso — y lo cambia todo."
+        </blockquote>
+        <cite>— El equipo BESTCUIT</cite>
+      </div>
+    </div>
+
+    <!-- RIGHT PANEL: FORM -->
+    <div class="contact-form-panel">
+      <div class="form-header">
+        <h2>Envíenos un mensaje</h2>
+        <p>Respuesta garantizada en 24 horas hábiles.</p>
+      </div>
+
+      <form class="contact-form" id="contactForm" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="company">Establecimiento <span>*</span></label>
+            <input type="text" id="company" name="company" placeholder="Nombre de su restaurante, café..." required>
+          </div>
+          <div class="form-group">
+            <label for="email">Correo Electrónico <span>*</span></label>
+            <input type="email" id="email" name="email" placeholder="usted@establecimiento.es" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="type">Tipo de establecimiento</label>
+          <select id="type" name="type">
+            <option value="" disabled selected>Seleccione su tipo de establecimiento</option>
+            <option value="restaurant">Restaurante</option>
+            <option value="cafe">Café / Brasserie</option>
+            <option value="hotel">Hotel</option>
+            <option value="cafeteria">Cafetería / Comedor</option>
+            <option value="catering">Catering</option>
+            <option value="otro">Otro</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Mensaje o consulta <span>*</span></label>
+          <textarea id="message" name="message" placeholder="Describa su necesidad, su volumen estimado, sus preguntas..." required></textarea>
+        </div>
+        <div class="form-check">
+          <input type="checkbox" id="privacy" name="privacy" required>
+          <label for="privacy">
+            Acepto la <a href="privacy-policy.html">política de privacidad</a> y consiento el tratamiento de mis datos para recibir una respuesta a mi solicitud.
+          </label>
+        </div>
+        <div class="form-submit">
+          <button type="submit" class="btn btn-dark">
+            Enviar mensaje
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+              <path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+      </form>
+
+      <div class="form-success" id="formSuccess">
+        <span class="success-icon"></span>
+        <h3>¡Mensaje enviado!</h3>
+        <p>Gracias por su mensaje. Le responderemos en las 24 horas hábiles.</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- CONTACT FOOTER STRIP -->
+  <section class="contact-footer-strip">
+    <div class="container">
+      <div class="contact-footer-grid">
+        <div class="cfooter-item reveal">
+          <h4>Respuesta Rápida</h4>
+          <p>Respondemos todas las consultas en las <strong>24h hábiles</strong></p>
+        </div>
+        <div class="cfooter-item reveal" style="transition-delay:0.12s;">
+          <h4>Primer Mes de Prueba</h4>
+          <p>Pruebe BESTCUIT en su establecimiento <strong>sin compromiso</strong></p>
+        </div>
+        <div class="cfooter-item reveal" style="transition-delay:0.24s;">
+          <h4>Capacitación Incluida</h4>
+          <p>Capacitación de su equipo en <strong>15 minutos</strong>, kit de comunicación incluido</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=64,h=64,fit=crop,f=png/ALpPMbl95zt93znw/galleta-sin-fondo-A1a5przloocRGwKr.png" alt="BESTCUIT">
+            BESTCUIT
+          </div>
+          <p>Cubiertos comestibles, deliciosos y ecológicos. Transforme sus pausas gourmet con utensilios 100% biodegradables.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navegación</h4>
+          <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="a-propos.html">Acerca de</a></li>
+            <li><a href="engagement.html">Compromiso</a></li>
+            <li><a href="catalogue.html">Catálogo</a></li>
+            <li><a href="contact.html">Contacto</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Productos</h4>
+          <ul>
+            <li><a href="catalogue.html#touillette">La Touillette</a></li>
+            <li><a href="catalogue.html#fourchette">La Fourchette</a></li>
+            <li><a href="catalogue.html#cuillere">La Cuillère</a></li>
+            <li><a href="catalogue.html#palettine">La Palettine</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contacto</h4>
+          <div class="footer-contact-item">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            contact@bestcuit.fr
+          </div>
+          <div class="footer-contact-item">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.6a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.61 3h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 10.6a16 16 0 0 0 6 6l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17z"/></svg>
+            +33 769 71 06 27
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 BESTCUIT. Todos los derechos reservados.</p>
+        <div class="footer-bottom-links">
+          <a href="privacy-policy.html">Política de Privacidad</a>
+          <a href="terms-and-conditions.html">Términos y Condiciones</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    // Simple form handler
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      if (!this.checkValidity()) {
+        this.reportValidity();
+        return;
+      }
+      this.style.display = 'none';
+      document.getElementById('formSuccess').style.display = 'block';
+    });
+  </script>
+</body>
+</html>
