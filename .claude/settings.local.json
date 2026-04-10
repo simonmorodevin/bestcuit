@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(awk 'NR>=298 && NR<=397' \"C:/Users/smoro/OneDrive/Bureau/Web BESTCUIT FRANCE/style.css\")",
+      "Bash(python3 -c \":*)",
+      "Bash(python3:*)",
+      "Bash(wc -l \"/c/Users/smoro/OneDrive/Bureau/Web BESTCUIT FRANCE\"/*.*)",
+      "Read(//c/Users/smoro/OneDrive/Bureau/**)",
+      "Bash(find C:/Users/smoro/OneDrive/Bureau/BESTCUIT -name *.png -o -name *.jpg -o -name *.svg)",
+      "WebFetch(domain:stitch.withgoogle.com)",
+      "WebSearch",
+      "Bash(claude mcp:*)",
+      "Bash(find 'C:/Users/smoro/OneDrive/Bureau/Web BESTCUIT FRANCE' -type f \\\\\\(-name *.png -o -name *.jpg -o -name *.jpeg -o -name *.webp -o -name *.gif -o -name *.svg \\\\\\))"
+    ]
+  }
+}

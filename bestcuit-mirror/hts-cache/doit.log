@@ -1,0 +1,8 @@
+https://www.bestcuit.fr/ -O "c:/Users/smoro/OneDrive/Bureau/Web BESTCUIT FRANCE/bestcuit-mirror" -r10 -%e0 -* +https://www.bestcuit.fr/* -https://www.bestcuit.fr/blog* -https://www.bestcuit.fr/*/blog* -s0
+File generated automatically on Sun, 05 Apr 2026 22:13:57, do NOT edit
+
+To update a mirror, just launch httrack without any parameters
+The existing cache will be used (and modified)
+To have other options, retype all parameters and launch HTTrack
+To continue an interrupted mirror, just launch httrack without any parameters
+
