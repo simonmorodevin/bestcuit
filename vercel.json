@@ -1,0 +1,39 @@
+{
+  "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "/api/$1"
+    },
+    {
+      "source": "/((?!api/).*)",
+      "destination": "/bestcuit-fr/$1",
+      "has": [
+        {
+          "type": "host",
+          "value": "bestcuit.fr"
+        }
+      ]
+    },
+    {
+      "source": "/((?!api/).*)",
+      "destination": "/bestcuit-es/$1",
+      "has": [
+        {
+          "type": "host",
+          "value": "bestcuit.es"
+        }
+      ]
+    },
+    {
+      "source": "/((?!api/).*)",
+      "destination": "/bestcuit-fr/$1",
+      "has": [
+        {
+          "type": "host",
+          "value": "bestcuit-fr.vercel.app"
+        }
+      ]
+    }
+  ]
+}
