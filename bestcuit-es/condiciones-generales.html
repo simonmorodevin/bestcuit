@@ -1,57 +1,353 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Condiciones generales | BESTCUIT</title>
-  <meta name="description" content="Condiciones generales de BESTCUIT — reglas y términos de uso del sitio bestcuit.es.">
+  <meta name="description" content="Conditions générales de BESTCUIT — règles et termes d'utilisation du site bestcuit.fr.">
   <link rel="icon" href="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=32,h=32,fit=crop,f=png/ALpPMbl95zt93znw/galleta-sin-fondo-A1a5przloocRGwKr.png">
   <link rel="stylesheet" href="css/styles.css">
-  <link rel="alternate" hreflang="fr" href="https://www.bestcuit.fr/conditions-generales.html">
+  <!-- Hreflang for international SEO -->
+  <link rel="alternate" hreflang="es" href="https://www.bestcuit.fr/conditions-generales.html">
   <link rel="alternate" hreflang="es" href="https://www.bestcuit.es/condiciones-generales.html">
   <link rel="alternate" hreflang="x-default" href="https://www.bestcuit.fr/conditions-generales.html">
   <style>
-    .legal-hero { background: var(--forest); min-height: 40vh; display: flex; align-items: center; padding: 60px 0 40px; position: relative; overflow: hidden; }
-    .legal-body { background: var(--cream-soft); padding: 80px 0 120px; }
-    .legal-content { max-width: 760px; margin: 0 auto; }
-    .legal-content h2 { font-family: var(--ff-display); font-size: 1.6rem; margin: 48px 0 16px; padding-top: 48px; border-top: 1px solid rgba(212, 184, 150, 0.4); }
-    .legal-date { display: inline-block; font-size: 0.78rem; font-weight: 700; color: var(--wheat); background: rgba(153, 88, 28, 0.08); border: 1px solid rgba(153, 88, 28, 0.2); border-radius: var(--radius-pill); padding: 6px 16px; margin-bottom: 48px; }
+    /* ── Legal Page ─────────────────────────────────── */
+    .legal-hero {
+      background: var(--forest);
+      min-height: 40vh;
+      display: flex;
+      align-items: center;
+      padding: 60px 0 40px;
+      position: relative;
+      overflow: hidden;
+    }
+    .legal-hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: transparent;
+    }
+    .legal-hero-grain {
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
+      background-size: 200px 200px;
+      pointer-events: none;
+    }
+    .legal-hero-content {
+      position: relative;
+      z-index: 3;
+    }
+    .hero-eyebrow {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--wheat);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      width: 32px;
+      height: 1px;
+      background: var(--wheat);
+    }
+    .hero-title {
+      font-family: var(--ff-display);
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 500;
+      color: var(--cream);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+    }
+    .hero-title em {
+      font-style: italic;
+      color: var(--wheat-light);
+    }
+
+    /* ── Legal Body ─────────────────────────────────── */
+    .legal-body {
+      background: var(--cream-soft);
+      padding: 80px 0 120px;
+    }
+    .legal-content {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    .legal-content h2 {
+      font-family: var(--ff-display);
+      font-size: 1.6rem;
+      font-weight: 500;
+      color: var(--text);
+      letter-spacing: -0.02em;
+      margin: 48px 0 16px;
+      padding-top: 48px;
+      border-top: 1px solid rgba(212, 184, 150, 0.4);
+    }
+    .legal-content h2:first-of-type {
+      margin-top: 0;
+      padding-top: 0;
+      border-top: none;
+    }
+    .legal-content p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+    .legal-content ul {
+      margin: 0 0 20px 20px;
+      padding: 0;
+    }
+    .legal-content ul li {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 8px;
+    }
+    .legal-content a {
+      color: var(--wheat);
+      text-decoration: underline;
+    }
+    .legal-content a:hover {
+      color: var(--text);
+    }
+    .legal-date {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--wheat);
+      background: rgba(153, 88, 28, 0.08);
+      border: 1px solid rgba(153, 88, 28, 0.2);
+      border-radius: var(--radius-pill);
+      padding: 6px 16px;
+      margin-bottom: 48px;
+    }
   </style>
 </head>
 <body>
+
+  <!-- NAVIGATION -->
   <nav class="nav scrolled" id="nav">
-    <a href="index.html" class="nav-logo">BESTCUIT</a>
+    <a href="index.html" class="nav-logo">
+      <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=64,h=64,fit=crop,f=png/ALpPMbl95zt93znw/galleta-sin-fondo-A1a5przloocRGwKr.png" alt="BESTCUIT">
+      BESTCUIT
+    </a>
     <ul class="nav-links">
       <li><a href="index.html">Inicio</a></li>
       <li><a href="acerca-de.html">Nosotros</a></li>
+      <li><a href="compromiso.html">Compromiso</a></li>
       <li><a href="catalogo.html">Catálogo</a></li>
       <li><a href="contacto.html">Contacto</a></li>
     </ul>
     <div class="nav-right">
       <div class="language-switcher">
-        <a href="https://www.bestcuit.fr/conditions-generales.html" class="lang-link" lang="fr">FR</a>
+        <a href="https://www.bestcuit.fr/conditions-generales.html" class="lang-link active" lang="es">FR</a>
         <span class="lang-separator">|</span>
         <a href="https://www.bestcuit.es/condiciones-generales.html" class="lang-link active" lang="es">ES</a>
       </div>
+      <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
   </nav>
 
-  <section class="legal-hero">
-    <div class="container"><div class="legal-hero-content"><h1>Condiciones <em>generales</em></h1></div></div>
+  <!-- HERO -->
+  <section class="legal-hero section-fade-down">
+    <div class="legal-hero-grain"></div>
+    <div class="container">
+      <div class="legal-hero-content reveal">
+        <p class="hero-eyebrow">Marco contractual</p>
+        <h1 class="hero-title">Condiciones <em>generales</em></h1>
+      </div>
+    </div>
   </section>
 
+  <!-- MAIN BODY -->
   <main class="legal-body">
     <div class="container">
       <div class="legal-content">
-        <span class="legal-date">Última actualización: abril 2026</span>
-        <p>¡Bienvenido a www.bestcuit.es!</p>
-        <p>Estas condiciones generales definen las reglas y regulaciones para el uso del sitio web de BESTCUIT...</p>
+        <span class="legal-date">Dernière mise à jour : avril 2026</span>
+
+        <p>Bienvenido a www.bestcuit.es !</p>
+
+        <p>Ces conditions générales définissent les règles et règlements para el uso del sitio web de BESTCUIT, en https://bestcuit.es.</p>
+
+        <p>En accédant à ce site Web, nous supposons que vous acceptez ces conditions générales. N'utilisez pas www.bestcuit.fr si vous n'acceptez pas l'ensemble des conditions énoncées sur cette page.</p>
+
         <h2>Cookies:</h2>
-        <p>Este sitio web utiliza cookies para personalizar su experiencia en línea. Al acceder a www.bestcuit.es, acepta el uso de las cookies requeridas...</p>
+        <p>Ce site Web utilise des cookies afin de personnaliser votre expérience en ligne. En accédant à www.bestcuit.fr, vous acceptez l'utilisation des cookies requis.</p>
+        <p>Un cookie est un fichier texte placé sur votre disque dur par un serveur de pages Web. Les cookies ne peuvent pas être utilisés pour exécuter des programmes ou transmettre des virus à votre ordinateur. Les cookies vous sont attribués de manière unique et ne peuvent être lus que par un serveur Web dans le domaine qui vous a attribué le cookie.</p>
+        <p>Nous pouvons utiliser des cookies pour collecter, stocker et suivre des informations à des fins statistiques ou de marketing dans le but d’exploiter notre site Web. Vous avez la possibilité d'accepter ou de refuser les cookies facultatifs. Certains cookies sont nécessaires au bon fonctionnement de notre site Web. Ces cookies ne nécessitent pas votre consentement car ils sont toujours actifs. Veuillez noter qu'en acceptant les cookies requis, vous acceptez également les cookies tiers, qui peuvent être utilisés via des services fournis par des tiers si vous utilisez ces services sur notre site Web, par exemple une fenêtre d'affichage vidéo intégrée provenant de tiers.</p>
+
         <h2>Licencia:</h2>
-        <p>A menos que se indique lo contrario, BESTCUIT y/o sus licenciantes poseen los derechos de propiedad intelectual de todo el contenido de www.bestcuit.es...</p>
+        <p>Sauf indication contraire, BESTCUIT et/ou ses concédants de licence détiennent les droits de propriété intellectuelle sur tout le contenu de www.bestcuit.fr. Tous les droits de propriété intellectuelle sont réservés. Vous pouvez accéder à www.bestcuit.fr pour votre usage personnel sous réserve des restrictions définies dans ces conditions générales.</p>
+        <p>Il vous est interdit de :</p>
+        <ul>
+          <li>Copier ou republier du contenu de www.bestcuit.fr</li>
+          <li>Vendre, louer ou concéder en sous-licence du contenu de www.bestcuit.fr</li>
+          <li>Reproduire, dupliquer ou copier du contenu de www.bestcuit.fr</li>
+          <li>Redistribuer du contenu de www.bestcuit.fr</li>
+        </ul>
+        <p>Le présent accord prend effet à la date des présentes.</p>
+
+        <p>Certaines parties de ce site offrent aux utilisateurs la possibilité de publier et d’échanger des opinions et des informations dans certaines zones du site. BESTCUIT ne filtre pas, ne modifie pas, ne publie pas et ne révise pas les commentaires avant leur apparition sur le site. Les commentaires ne reflètent pas les points de vue et opinions de BESTCUIT, de ses agents et/ou affiliés. Les commentaires reflètent les opinions de la personne qui les publie. Dans la mesure permise par la législation applicable, BESTCUIT ne sera pas responsable des commentaires ni de toute responsabilité, dommage ou dépense causés et/ou subis à la suite de l'utilisation, de la publication et/ou de l'apparition des commentaires sur ce site.</p>
+
+        <p>BESTCUIT se réserve le droit de surveiller tous les commentaires et de supprimer ceux qui peuvent être considérés comme inappropriés, offensants ou en violation de ces conditions générales.</p>
+
+        <p>Vous garantissez et déclarez que :</p>
+        <ul>
+          <li>Vous êtes autorisé à publier les commentaires sur notre site et disposez de toutes les licences et autorisations nécessaires à cet effet ;</li>
+          <li>Les commentaires ne portent pas atteinte à un droit de propriété intellectuelle, y compris, sans s'y limiter, les droits d'auteur, les brevets ou les marques de commerce d’un tiers ;</li>
+          <li>Les commentaires ne contiennent aucun contenu diffamatoire, calomnieux, offensant, indécent ou illégal, constituant une atteinte à la vie privée ;</li>
+          <li>Les commentaires ne seront pas utilisés pour solliciter ou promouvoir une entreprise, une coutume ou présenter des activités commerciales ou illégales.</li>
+        </ul>
+
+        <p>Vous accordez par la présente à BESTCUIT une licence non exclusive d’utiliser, reproduire, éditer et autoriser d'autres personnes à utiliser, reproduire et éditer vos commentaires sous toute forme, format ou média.</p>
+
+        <h2>Hipervínculos a nuestro contenido:</h2>
+        <p>Les organisations suivantes peuvent créer un lien vers notre site Web sans approbation écrite préalable :</p>
+        <ul>
+          <li>Les agences gouvernementales ;</li>
+          <li>Les moteurs de recherche ;</li>
+          <li>Les organisations de presse ;</li>
+          <li>Les distributeurs d’annuaires en ligne peuvent créer un lien vers notre site Web de la même manière qu’ils créent des liens vers d'autres entreprises listées ; et</li>
+          <li>Les entreprises accréditées à l’échelle du système, à l’exception des organisations caritatives, des centres commerciaux caritatifs et des groupes de collecte de fonds qui ne peuvent pas créer de lien vers notre site.</li>
+        </ul>
+
+        <p>Ces organisations peuvent créer un lien vers notre page d'accueil, des publications ou d'autres informations du site Web tant que le lien : (a) n’est en aucun cas trompeur ; (b) n’implique pas faussement un parrainage, un soutien ou une approbation de la part de la partie qui établit le lien et de ses produits et/ou services ; et (c) s’insère dans le contexte du site de la partie qui établit le lien.</p>
+
+        <p>Nous pouvons examiner et approuver d'autres demandes de liens provenant des types d’organisations suivants :</p>
+        <ul>
+          <li>Sources d’informations grand public et/ou professionnelles connues ;</li>
+          <li>Sites communautaires en .com ;</li>
+          <li>Associations ou autres groupes représentant des œuvres caritatives ;</li>
+          <li>Distributeurs d’annuaires en ligne ;</li>
+          <li>Portails Internet ;</li>
+          <li>Cabinets comptables, juridiques et de conseil ; et</li>
+          <li>Établissements d’enseignement et associations professionnelles.</li>
+        </ul>
+
+        <p>Nous approuverons les demandes de lien de ces organisations si nous estimons que : (a) le lien ne nous reflétera pas négativement ou à nos entreprises accréditées ; (b) l'organisation n'a aucun antécédent négatif avec nous ; (c) le bénéfice que nous tirons de la visibilité du lien compense l'absence de BESTCUIT ; et (d) le lien s'inscrit dans un contexte d'information générale.</p>
+
+        <p>Ces organisations peuvent établir un lien vers notre page d’accueil à condition que le lien : (a) ne soit pas trompeur ; (b) n’implique pas faussement un parrainage, une approbation ou un soutien ; et (c) soit pertinent dans le contexte du site du tiers.</p>
+
+        <p>Si vous êtes une des organisations listées ci-dessus et que vous souhaitez créer un lien vers notre site Web, vous devez nous en informer par e-mail à <a href="mailto:contact@bestcuit.fr">contact@bestcuit.fr</a>. Veuillez inclure votre nom, le nom de votre organisation, vos coordonnées, l’URL de votre site, une liste des URL à partir desquelles vous souhaitez établir un lien vers notre site Web, ainsi qu’une liste des URL de notre site vers lesquelles vous souhaitez créer un lien. Veuillez patienter 2 à 3 semaines pour une réponse.</p>
+
+        <p>Les organisations approuvées peuvent créer un lien vers notre site Web de la manière suivante :</p>
+        <ul>
+          <li>En utilisant notre nom commercial ; ou</li>
+          <li>En utilisant l’URL à laquelle le lien est établi ; ou</li>
+          <li>En utilisant toute autre description appropriée de notre site Web dans le contexte et le format du contenu du site tiers.</li>
+        </ul>
+
+        <p>L'utilisation du logo ou d’autres éléments graphiques de BESTCUIT pour le lien n’est pas autorisée sans accord de licence de marque.</p>
+
+        <h2>Responsabilidad del contenido:</h2>
+        <p>Nous ne serons pas responsables du contenu apparaissant sur votre site Web. Vous acceptez de nous défendre contre toute réclamation découlant de votre site Web. Aucun lien ne doit apparaître sur un site Web pouvant être interprété comme diffamatoire, obscène, criminel ou qui enfreint, viole ou encourage la violation de droits de tiers.</p>
+
+        <h2>Reserva de derechos:</h2>
+        <p>Nous nous réservons le droit de vous demander de supprimer tous les liens ou un lien particulier vers notre site Web. Vous acceptez de supprimer immédiatement tous les liens vers notre site sur demande. Nous nous réservons également le droit de modifier ces conditions générales et notre politique de liens à tout moment. En continuant de créer un lien vers notre site Web, vous acceptez d’être lié à ces conditions générales de liaison.</p>
+
+        <h2>Eliminación de enlaces de nuestro sitio web:</h2>
+        <p>Si vous trouvez un lien sur notre site Web offensant pour quelque raison que ce soit, vous êtes libre de nous contacter à tout moment. Nous prendrons en compte les demandes de suppression de liens, mais nous ne sommes pas obligés de le faire ni de vous répondre directement.</p>
+
+        <p>Nous ne garantissons pas que les informations sur ce site soient correctes. Nous ne garantissons ni leur exhaustivité ni leur exactitude, ni que le site reste disponible ou que le contenu soit mis à jour.</p>
+
+        <h2>Cláusula de exención de responsabilidad:</h2>
+        <p>Dans toute la mesure permise par la loi applicable, nous excluons toutes représentations, garanties et conditions relatives à notre site Web et à son utilisation. Rien dans cette clause de non-responsabilité ne pourra :</p>
+        <ul>
+          <li>Limiter ou exclure notre responsabilité ou la vôtre en cas de décès ou de blessure corporelle ;</li>
+          <li>Limiter ou exclure notre responsabilité ou la vôtre en cas de fraude ou de fausse déclaration frauduleuse ;</li>
+          <li>Limiter l'une de nos responsabilités ou des vôtres d'une manière qui n’est pas autorisée par la loi applicable ; ou</li>
+          <li>Exclure l'une de nos responsabilités ou des vôtres qui ne peuvent être exclues en vertu de la loi applicable.</li>
+        </ul>
+
+        <p>Les limitations et interdictions de responsabilité énoncées dans cette section et ailleurs dans cette clause de non-responsabilité : (a) sont soumises au paragraphe précédent ; et (b) s’appliquent à toutes les responsabilités découlant de cette clause, y compris les responsabilités contractuelles, délictuelles et en cas de violation d’une obligation légale.</p>
+
+        <p>Tant que le site Web et les informations et services qu’il contient sont fournis gratuitement, nous ne serons pas responsables de toute perte ou dommage, de quelque nature que ce soit.</p>
       </div>
     </div>
   </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=64,h=64,fit=crop,f=png/ALpPMbl95zt93znw/galleta-sin-fondo-A1a5przloocRGwKr.png" alt="BESTCUIT">
+            BESTCUIT
+          </div>
+          <p>Cubiertos comestibles, deliciosos y ecológicos. Transforma tus pausas gourmet con utensilios 100% biodegradables.</p>
+          <div class="footer-social">
+            <a href="https://www.instagram.com/bestcuit.fr/" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=61582842930568" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/company/bestcuit/posts/?feedView=all" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+          </div>
+          <div class="footer-social">
+            <a href="https://www.instagram.com/bestcuit.fr/" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=61582842930568" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/company/bestcuit/posts/?feedView=all" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="acerca-de.html">Nosotros</a></li>
+            <li><a href="compromiso.html">Compromiso</a></li>
+            <li><a href="catalogo.html">Catálogo</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Produits</h4>
+          <ul>
+            <li><a href="catalogo.html#touillette">El Removedor</a></li>
+            <li><a href="catalogo.html#fourchette">El Tenedor</a></li>
+            <li><a href="catalogo.html#cuillere">La Cuchara</a></li>
+            <li><a href="catalogo.html#palettine">La Paletina</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contacto</h4>
+          <div class="footer-contact-item">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            contact@bestcuit.fr
+          </div>
+          <div class="footer-contact-item">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.6a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.61 3h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 10.6a16 16 0 0 0 6 6l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17z"/></svg>
+            +33 769 71 06 27
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>BESTCUIT — Ecoinnovación &amp; Sabor</p>
+        <div class="footer-bottom-links">
+          <a href="politica-de-privacidad.html">Privacidad</a>
+          <a href="condiciones-generales.html">Condiciones generales</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
 </body>
 </html>

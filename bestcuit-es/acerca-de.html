@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -7,45 +7,344 @@
   <meta name="description" content="En Bestcuit, todo empezó con una idea simple: ¿y si nuestros gestos cotidianos pudieran tener un impacto positivo en el planeta sin renunciar al placer?">
   <link rel="icon" href="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=32,h=32,fit=crop,f=png/ALpPMbl95zt93znw/galleta-sin-fondo-A1a5przloocRGwKr.png">
   <link rel="stylesheet" href="css/styles.css">
-  <!-- Hreflang para SEO internacional -->
-  <link rel="alternate" hreflang="fr" href="https://www.bestcuit.fr/a-propos.html">
+  <!-- Hreflang for international SEO -->
+  <link rel="alternate" hreflang="es" href="https://www.bestcuit.fr/a-propos.html">
   <link rel="alternate" hreflang="es" href="https://www.bestcuit.es/acerca-de.html">
   <link rel="alternate" hreflang="x-default" href="https://www.bestcuit.fr/a-propos.html">
   <style>
-    .nav.scrolled { background: var(--forest); backdrop-filter: none; border-bottom: none; }
-    .about-hero { background: var(--forest); min-height: 50vh; display: flex; align-items: center; padding: 80px 0 60px; position: relative; overflow: hidden; }
-    .about-hero::before { content: 'HISTORIA'; position: absolute; bottom: -20px; right: -20px; font-family: var(--ff-display); font-size: clamp(80px, 16vw, 200px); font-weight: 700; letter-spacing: -0.04em; color: rgba(244, 218, 195, 0.04); pointer-events: none; white-space: nowrap; z-index: 1; }
-    .about-hero-grain { position: absolute; inset: 0; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E"); background-size: 200px 200px; pointer-events: none; }
+    /* ── Nav seamless with hero ─────────────────────── */
+    .nav.scrolled {
+      background: var(--forest);
+      backdrop-filter: none;
+      border-bottom: none;
+    }
+
+    /* ── About Page ────────────────────────────────────── */
+    .about-hero {
+      background: var(--forest);
+      min-height: 50vh;
+      display: flex;
+      align-items: center;
+      padding: 80px 0 60px;
+      position: relative;
+      overflow: hidden;
+    }
+    .about-hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: transparent;
+    }
+    .about-hero::before {
+      content: 'HISTORIA';
+      position: absolute;
+      bottom: -20px;
+      right: -20px;
+      font-family: var(--ff-display);
+      font-size: clamp(80px, 16vw, 200px);
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      color: rgba(244, 218, 195, 0.04);
+      pointer-events: none;
+      white-space: nowrap;
+      z-index: 1;
+    }
+    .about-hero-grain {
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
+      background-size: 200px 200px;
+      pointer-events: none;
+    }
+    /* Old eyebrow/h1/quote styles replaced by shared .hero-eyebrow, .hero-title, .hero-quote in styles.css */
     .about-hero-content { position: relative; z-index: 3; }
-    .story-section { padding: 120px 0; background: var(--cream-soft); }
-    .story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-    .story-visual { position: relative; }
-    .story-img-main { border-radius: var(--radius-lg); overflow: hidden; aspect-ratio: 4/5; }
-    .story-img-main img { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
-    .story-float-badge { position: absolute; top: 32px; right: -24px; background: var(--forest); color: var(--cream); padding: 16px 20px; border-radius: var(--radius); border: 1px solid rgba(215, 125, 40, 0.3); text-align: center; }
-    .story-float-badge span { font-family: var(--ff-display); font-size: 2rem; font-weight: 500; color: var(--wheat-light); display: block; }
-    .story-float-badge p { font-size: 0.7rem; color: rgba(244, 218, 195, 0.55); letter-spacing: 0.1em; text-transform: uppercase; margin-top: 4px; }
-    .story-content p { font-size: 1rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 20px; }
-    .mission-strip { background: var(--biscuit); padding: 48px 0; overflow: hidden; }
-    .mission-strip-inner { display: flex; align-items: center; justify-content: center; text-align: center; }
-    .mission-strip h2 { font-family: var(--ff-display); font-size: clamp(1.5rem, 3.5vw, 2.5rem); font-weight: 500; color: var(--espresso); letter-spacing: -0.02em; max-width: 860px; line-height: 1.3; }
-    .values-section { padding: 120px 0; background: var(--white); }
-    .values-header { text-align: center; max-width: 640px; margin: 0 auto 80px; }
-    .values-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
-    .value-card { padding: 40px; border-radius: var(--radius-lg); background: var(--cream-soft); border: 1px solid rgba(212, 184, 150, 0.4); display: grid; grid-template-columns: auto 1fr; gap: 24px; align-items: flex-start; transition: all 0.35s var(--ease-out-expo); }
-    .value-card h3 { font-family: var(--ff-display); font-size: 1.25rem; font-weight: 500; color: var(--text); margin-bottom: 12px; }
-    .vision-section { padding: 120px 0; background: var(--forest); position: relative; overflow: hidden; }
-    .vision-inner { position: relative; z-index: 2; max-width: 820px; margin: 0 auto; text-align: center; }
-    .vision-inner .section-title { color: var(--cream); margin: 0 auto 32px; }
+
+    /* ── Story Section ─────────────────────────────────── */
+    .story-section {
+      padding: 120px 0;
+      background: var(--cream-soft);
+    }
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .story-visual {
+      position: relative;
+    }
+    .story-img-main {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      aspect-ratio: 4/5;
+    }
+    .story-img-main img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+    }
+    .story-img-accent {
+      position: absolute;
+      bottom: -32px;
+      right: -32px;
+      width: 200px;
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 4px solid var(--cream-soft);
+      box-shadow: 0 16px 48px rgba(44, 31, 16, 0.15);
+      aspect-ratio: 1;
+    }
+    .story-img-accent img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .story-float-badge {
+      position: absolute;
+      top: 32px;
+      right: -24px;
+      background: var(--forest);
+      color: var(--cream);
+      padding: 16px 20px;
+      border-radius: var(--radius);
+      border: 1px solid rgba(215, 125, 40, 0.3);
+      text-align: center;
+    }
+    .story-float-badge span {
+      font-family: var(--ff-display);
+      font-size: 2rem;
+      font-weight: 500;
+      color: var(--wheat-light);
+      display: block;
+    }
+    .story-float-badge p {
+      font-size: 0.7rem;
+      color: rgba(244, 218, 195, 0.55);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+    .story-content .section-label { margin-bottom: 16px; }
+    .story-content .section-title { margin-bottom: 24px; }
+    .story-content p {
+      font-size: 1rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+    .story-content p strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    /* ── Mission Strip ─────────────────────────────────── */
+    .mission-strip {
+      background: var(--biscuit);
+      padding: 48px 0;
+      overflow: hidden;
+    }
+    .mission-strip-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      text-align: center;
+    }
+    .mission-strip h2 {
+      font-family: var(--ff-display);
+      font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+      font-weight: 500;
+      color: var(--espresso);
+      letter-spacing: -0.02em;
+      max-width: 860px;
+      line-height: 1.3;
+    }
+    .mission-strip h2 em { font-style: italic; }
+
+    /* ── Values Section ────────────────────────────────── */
+    .values-section {
+      padding: 120px 0;
+      background: var(--white);
+    }
+    .values-header {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto 80px;
+    }
+    .values-header .section-label { justify-content: center; }
+    .values-header .section-label::before { display: none; }
+    .values-header .section-label::after {
+      content: '';
+      width: 24px;
+      height: 1px;
+      background: var(--wheat);
+    }
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+    .value-card {
+      padding: 40px;
+      border-radius: var(--radius-lg);
+      background: var(--cream-soft);
+      border: 1px solid rgba(212, 184, 150, 0.4);
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 24px;
+      align-items: flex-start;
+      transition: all 0.35s var(--ease-out-expo);
+    }
+    .value-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 60px rgba(44, 31, 16, 0.08);
+      border-color: rgba(215, 125, 40, 0.4);
+    }
+    .value-num {
+      font-family: var(--ff-display);
+      font-size: 3rem;
+      font-weight: 300;
+      color: rgba(215, 125, 40, 0.3);
+      line-height: 1;
+      letter-spacing: -0.04em;
+      min-width: 48px;
+    }
+    .value-text h3 {
+      font-family: var(--ff-display);
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 12px;
+      letter-spacing: -0.01em;
+    }
+    .value-text p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* ── Team Vision ───────────────────────────────────── */
+    .vision-section {
+      padding: 120px 0;
+      background: var(--forest);
+      position: relative;
+      overflow: hidden;
+    }
+    .vision-bg {
+      position: absolute;
+      inset: 0;
+      background: transparent;
+    }
+    .vision-grain {
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
+      background-size: 200px 200px;
+      pointer-events: none;
+    }
+    .vision-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 820px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .vision-inner .section-label {
+      color: var(--wheat-light);
+      justify-content: center;
+    }
+    .vision-inner .section-label::before { display: none; }
+    .vision-inner .section-label::after {
+      content: '';
+      width: 24px;
+      height: 1px;
+      background: var(--wheat-light);
+    }
+    .vision-inner .section-title {
+      color: var(--cream);
+      margin: 0 auto 32px;
+    }
     .vision-inner .section-title em { color: var(--wheat-light); }
-    .vision-pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 64px; }
-    .vision-pillar { padding: 40px 24px; background: var(--cream-soft); border: 1px solid rgba(212, 184, 150, 0.4); border-radius: var(--radius-lg); text-align: center; transition: all 0.4s var(--ease-out-expo); box-shadow: 0 20px 40px rgba(0,0,0,0.15); }
-    .vision-pillar h4 { font-family: var(--ff-display); font-size: 1.25rem; font-weight: 600; color: var(--text); margin-bottom: 12px; }
-    @media (max-width: 900px) { .story-grid { grid-template-columns: 1fr; gap: 48px; } .values-grid { grid-template-columns: 1fr; } .vision-pillars { grid-template-columns: 1fr; } }
+    .vision-pillars {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 64px;
+    }
+    .vision-pillar {
+      padding: 40px 24px;
+      background: var(--cream-soft);
+      border: 1px solid rgba(212, 184, 150, 0.4);
+      border-radius: var(--radius-lg);
+      text-align: center;
+      transition: all 0.4s var(--ease-out-expo);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+      position: relative;
+    }
+    /* Cool entrance animation specific to these cards */
+    .vision-pillar.reveal {
+      opacity: 0;
+      transform: translateY(40px) scale(0.95) rotateX(-10deg);
+      perspective: 1000px;
+    }
+    .vision-pillar.reveal.revealed {
+      opacity: 1;
+      transform: translateY(0) scale(1) rotateX(0deg);
+      transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Snappier, bouncy effect */
+    }
+    .vision-pillar:hover {
+      background: var(--cream);
+      border-color: var(--wheat);
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 30px 60px rgba(0,0,0,0.25);
+    }
+    .vision-pillar .icon {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 72px;
+      height: 72px;
+      background: var(--forest);
+      border-radius: 50%;
+      border: 4px solid var(--cream-soft);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    }
+    .vision-pillar .icon svg {
+      color: var(--wheat-light) !important;
+      opacity: 1 !important;
+      width: 32px;
+      height: 32px;
+    }
+    .vision-pillar h4 {
+      font-family: var(--ff-display);
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+    .vision-pillar p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .story-grid { grid-template-columns: 1fr; gap: 48px; }
+      .story-visual { padding-bottom: 32px; }
+      .story-img-accent { right: 0; bottom: 0; width: 140px; }
+      .story-float-badge { right: 0; top: 16px; }
+      .values-grid { grid-template-columns: 1fr; }
+      .vision-pillars { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
 
+  <!-- NAVIGATION -->
   <nav class="nav scrolled" id="nav">
     <a href="index.html" class="nav-logo">
       <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=64,h=64,fit=crop,f=png/ALpPMbl95zt93znw/galleta-sin-fondo-A1a5przloocRGwKr.png" alt="BESTCUIT">
@@ -60,14 +359,16 @@
     </ul>
     <div class="nav-right">
       <div class="language-switcher">
-        <a href="https://www.bestcuit.fr/a-propos.html" class="lang-link" lang="fr">FR</a>
+        <a href="https://www.bestcuit.fr/a-propos.html" class="lang-link active" lang="es">FR</a>
         <span class="lang-separator">|</span>
         <a href="https://www.bestcuit.es/acerca-de.html" class="lang-link active" lang="es">ES</a>
       </div>
-      <button class="nav-toggle" aria-label="Menú"><span></span><span></span><span></span></button>
+      <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
   </nav>
 
+
+  <!-- HERO -->
   <section class="about-hero section-fade-down">
     <div class="about-hero-grain"></div>
     <div class="container">
@@ -77,56 +378,145 @@
           <h1 class="hero-title">¿Por qué <em>Bestcuit?</em></h1>
         </div>
         <div class="hero-right">
-          <blockquote class="hero-quote">"¿Y si nuestros gestos cotidianos pudieran tener un impacto positivo en el planeta — sin renunciar al placer?"</blockquote>
+          <blockquote class="hero-quote">"Et si nos gestes du quotidien pouvaient avoir un impact positif sur la planète — sans renoncer au plaisir ?"</blockquote>
+
         </div>
       </div>
     </div>
   </section>
 
+  <!-- STORY -->
   <section class="story-section section-fade-down-dark">
     <div class="container">
       <div class="story-grid">
         <div class="story-visual reveal-left">
           <div class="story-img-main">
-            <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1024,h=1404,fit=crop/ALpPMbl95zt93znw/generated-image-november-20-2025---11_31am-JKcQhr8cUceYyQIv.png" alt="BESTCUIT" loading="lazy">
+            <img
+              src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1024,h=1404,fit=crop/ALpPMbl95zt93znw/generated-image-november-20-2025---11_31am-JKcQhr8cUceYyQIv.png"
+              alt="BESTCUIT en action"
+              loading="lazy"
+            >
           </div>
-          <div class="story-float-badge"><span>Use&amp;Eat</span><p>Nuestro concepto</p></div>
+          <div class="story-float-badge">
+            <span>Use&amp;Eat</span>
+            <p>Nuestro concepto</p>
+          </div>
         </div>
         <div class="story-content reveal-right">
           <div class="section-label">Nuestro nacimiento</div>
           <h2 class="section-title">Una idea simple,<br>un <em>impacto inmenso</em></h2>
           <p>En Bestcuit, todo empezó con una idea simple: <strong>¿y si nuestros gestos cotidianos pudieran tener un impacto positivo en el planeta — sin renunciar al placer?</strong> Así nació nuestra empresa, con la voluntad de reinventar la restauración a través de soluciones comestibles, sostenibles y sabrosas.</p>
-          <p>Nuestra ambición es <strong>impulsar un cambio concreto en las prácticas de consumo</strong>, eliminando los residuos mientras ofrecemos una experiencia de cliente única, premium y memorable.</p>
-          <a href="compromiso.html" class="btn btn-dark" style="margin-top:8px;">Ver nuestro compromiso</a>
+          <p>Nuestra ambición es <strong>impulsar un cambio concreto en las prácticas de consumo</strong>, reduciendo los residuos a cero mientras ofrecemos una experiencia de cliente única, premium y memorable.</p>
+          <p>Hoy, nuestros productos permiten a cada establecimiento diferenciarse, captar atención e inscribirse en un movimiento con sentido: <strong>Use&amp;Eat</strong>.</p>
+          <a href="compromiso.html" class="btn btn-dark" style="margin-top:8px;">
+            Ver nuestro compromiso
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+              <path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
         </div>
       </div>
     </div>
   </section>
 
-  <div class="mission-strip"><div class="container"><div class="mission-strip-inner"><h2>Nuestra ambición: <em>residuo cero</em>, sin compromiso en el sabor — una experiencia premium en cada comida.</h2></div></div></div>
+  <!-- MISSION STRIP -->
+  <div class="mission-strip">
+    <div class="container">
+      <div class="mission-strip-inner">
+        <h2>Nuestra ambición: <em>residuo cero</em>, sin compromiso en el sabor — una experiencia premium en cada comida.</h2>
+      </div>
+    </div>
+  </div>
 
+  <!-- VALUES -->
   <section class="values-section section-fade-down-dark">
     <div class="container">
-      <div class="values-header reveal"><div class="section-label">Nuestros ejes de compromiso</div><h2 class="section-title">Lo que nos <em>guía</em></h2><p>Cuatro pilares fundamentales que estructuran todas nuestras decisiones, desde la concepción hasta la entrega.</p></div>
+      <div class="values-header reveal">
+        <div class="section-label">Nuestros ejes de compromiso</div>
+        <h2 class="section-title">Lo que nos <em>guía</em></h2>
+        <p class="section-subtitle" style="margin:16px auto 0;text-align:center;">Cuatro pilares fundamentales que estructuran todas nuestras decisiones, de la concepción a la entrega.</p>
+      </div>
       <div class="values-grid">
-        <div class="value-card reveal"><div class="value-num">01</div><div class="value-text"><h3>Neutralidad de carbono</h3><p>Creemos en un futuro más respetuoso. Al proponer alternativas sostenibles, contribuimos a la reducción de residuos y a la preservación de recursos naturales.</p></div></div>
-        <div class="value-card reveal" style="transition-delay:0.12s;"><div class="value-num">02</div><div class="value-text"><h3>Productos circulares</h3><p>Nuestros utensilios son diseñados bajo principios de ecodiseño: biodegradables, comestibles y fabricados con ingredientes naturales.</p></div></div>
-        <div class="value-card reveal" style="transition-delay:0.24s;"><div class="value-num">03</div><div class="value-text"><h3>Canal responsable</h3><p>Priorizamos proveedores que respetan criterios sociales y ambientales sólidos para construir una cadena de suministro ética.</p></div></div>
-        <div class="value-card reveal" style="transition-delay:0.36s;"><div class="value-num">04</div><div class="value-text"><h3>Cultura y formación</h3><p>La sostenibilidad es nuestro ADN. Formamos a nuestro equipo en buenas prácticas y fomentamos una cultura participativa.</p></div></div>
+        <div class="value-card reveal">
+          <div class="value-num">01</div>
+          <div class="value-text">
+            <h3>Transición hacia la neutralidad de carbono</h3>
+            <p>Creemos en un futuro más respetuoso con el medio ambiente. Al ofrecer alternativas sostenibles, contribuimos a la reducción de residuos y a la preservación de los recursos naturales.</p>
+          </div>
+        </div>
+        <div class="value-card reveal" style="transition-delay:0.12s;">
+          <div class="value-num">02</div>
+          <div class="value-text">
+            <h3>Productos duraderos y circulares</h3>
+            <p>Nuestros utensilios están diseñados bajo principios de ecodiseño: totalmente biodegradables, comestibles y fabricados con ingredientes simples y naturales. El embalaje es reciclable en más de un 60%.</p>
+          </div>
+        </div>
+        <div class="value-card reveal" style="transition-delay:0.24s;">
+          <div class="value-num">03</div>
+          <div class="value-text">
+            <h3>Canal responsable y proveedores comprometidos</h3>
+            <p>Priorizamos proveedores que respetan criterios sociales y ambientales sólidos. Una selección rigurosa para construir una cadena de suministro ética y alineada con nuestra misión.</p>
+          </div>
+        </div>
+        <div class="value-card reveal" style="transition-delay:0.36s;">
+          <div class="value-num">04</div>
+          <div class="value-text">
+            <h3>Cultura interna y formación</h3>
+            <p>La sostenibilidad forma parte de nuestro ADN. Formamos a nuestro equipo en buenas prácticas ecológicas y fomentamos una cultura participativa.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- VISION -->
   <section class="vision-section">
-    <div class="vision-inner">
-      <div class="section-label reveal">Nuestra visión</div>
-      <h2 class="section-title reveal">Un cambio <em>suave</em><br>que transforma nuestros hábitos</h2>
-      <p class="reveal" style="color: rgba(244, 218, 195, 0.7); max-width: 760px; margin: 0 auto 60px;">Estamos convencidos de que la transición ecológica no debe ser una restricción, sino una oportunidad de innovación. Nuestra visión es acompañar la evolución de las mentalidades reemplazando un residuo por una experiencia gustativa sorprendente.</p>
-      <div class="vision-pillars">
-        <div class="vision-pillar"><h4>Planta la semilla</h4><p>Eliminar el plástico desechable. Cada cubierto comido es un residuo menos en nuestra Tierra.</p></div>
-        <div class="vision-pillar"><h4>Socio de transición</h4><p>Acompañar al sector HORECA a destacar. Ofrece una alternativa que hable de tus valores.</p></div>
-        <div class="vision-pillar"><h4>Gourmet comprometido</h4><p>Probar que sostenibilidad rima con sabor. Un gesto eco no tiene por qué ser aburrido.</p></div>
+    <div class="vision-bg"></div>
+    <div class="vision-grain"></div>
+    <div class="container">
+      <div class="vision-inner">
+        <div class="section-label reveal">
+          <span style="width:24px;height:1px;background:var(--wheat-light);display:block;"></span>
+          Nuestra visión
+          <span style="width:24px;height:1px;background:var(--wheat-light);display:block;"></span>
+        </div>
+        <h2 class="section-title reveal">Un cambio <em>suave</em><br>que transforma nuestros hábitos</h2>
+        <p class="reveal" style="text-align: center; max-width: 760px; margin: 24px auto 60px; font-size: 1.05rem; color: rgba(244, 218, 195, 0.7); line-height: 1.75;">
+          Nous sommes convaincus que la transition écologique ne doit pas être une contrainte, mais une opportunité d'innovation. Nuestra visión est d’accompagner l'évolution des mentalités en remplaçant un déchet par une expérience gustative surprenante. Nous voulons transformer un geste mécanique du quotidien en un moment de plaisir durable, sans bousculer le rythme des restaurateurs ni les habitudes de leurs clients.
+        </p>
+        <div class="vision-pillars" data-stagger>
+          <div class="vision-pillar">
+            <span class="icon">
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--wheat);opacity:0.75;">
+                <path d="M16 28c0 0-10-6-10-14a10 10 0 0 1 20 0c0 8-10 14-10 14z"/>
+                <path d="M16 14v8M12 18c1.5-1.5 4-1.5 4 0"/>
+              </svg>
+            </span>
+            <h4>Planta la semilla</h4>
+            <p>Eliminar el plástico desechable. Cada cubierto comido es un residuo menos en nuestra Tierra, una victoria invisible pero concreta.</p>
+          </div>
+          <div class="vision-pillar">
+            <span class="icon">
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--wheat);opacity:0.75;">
+                <path d="M4 26v-2a8 8 0 0 1 8-8h8a8 8 0 0 1 8 8v2"/>
+                <circle cx="16" cy="10" r="4"/>
+              </svg>
+            </span>
+            <h4>Socio de transición</h4>
+            <p>Acompañar al sector HORECA a destacar. Ofrece a tus clientes una alternativa ecorresponsable que hable de tus valores.</p>
+          </div>
+          <div class="vision-pillar">
+            <span class="icon">
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--wheat);opacity:0.75;">
+                <circle cx="16" cy="16" r="12"/>
+                <path d="M11 16c0-2.76 2.24-5 5-5s5 2.24 5 5-2.24 5-5 5-5-2.24-5-5z"/>
+                <path d="M16 4v4M16 24v4M4 16h4M24 16h4"/>
+              </svg>
+            </span>
+            <h4>Gourmet comprometido</h4>
+            <p>Probar que sostenibilidad rima con sabor. Un gesto ecológico no tiene que ser aburrido: puede ser el momento más crujiente de la comida.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -135,10 +525,62 @@
   <footer class="footer">
     <div class="container">
       <div class="footer-inner">
-        <div class="footer-brand"><div class="footer-logo">BESTCUIT</div><p>Cubiertos comestibles y biodegradables. Transforma tus pausas gourmet.</p></div>
-        <div class="footer-col"><h4>Navegación</h4><ul><li><a href="index.html">Inicio</a></li><li><a href="acerca-de.html">Nosotros</a></li><li><a href="catalogo.html">Catálogo</a></li><li><a href="contacto.html">Contacto</a></li></ul></div>
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=64,h=64,fit=crop,f=png/ALpPMbl95zt93znw/galleta-sin-fondo-A1a5przloocRGwKr.png" alt="BESTCUIT">
+            BESTCUIT
+          </div>
+          <p>Cubiertos comestibles, deliciosos y ecológicos. Transforma tus pausas gourmet con utensilios 100% biodegradables.</p>
+          <div class="footer-social">
+            <a href="https://www.instagram.com/bestcuit.fr/" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=61582842930568" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/company/bestcuit/posts/?feedView=all" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="acerca-de.html">Nosotros</a></li>
+            <li><a href="compromiso.html">Compromiso</a></li>
+            <li><a href="catalogo.html">Catálogo</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Produits</h4>
+          <ul>
+            <li><a href="catalogo.html#touillette">El Removedor</a></li>
+            <li><a href="catalogo.html#fourchette">El Tenedor</a></li>
+            <li><a href="catalogo.html#cuillere">La Cuchara</a></li>
+            <li><a href="catalogo.html#palettine">La Paletina</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contacto</h4>
+          <div class="footer-contact-item">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            contact@bestcuit.fr
+          </div>
+          <div class="footer-contact-item">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.6a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.61 3h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 10.6a16 16 0 0 0 6 6l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17z"/></svg>
+            +33 769 71 06 27
+          </div>
+        </div>
       </div>
-      <div class="footer-bottom"><p>BESTCUIT — Ecoinnovación & Sabor</p></div>
+      <div class="footer-bottom">
+        <p>BESTCUIT — Ecoinnovación &amp; Sabor</p>
+        <div class="footer-bottom-links">
+          <a href="politica-de-privacidad.html">Privacidad</a>
+          <a href="condiciones-generales.html">Condiciones generales</a>
+        </div>
+      </div>
     </div>
   </footer>
 
