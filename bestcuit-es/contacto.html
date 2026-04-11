@@ -140,31 +140,32 @@
         <h2>Envíanos un mensaje</h2>
         <p>Respuesta garantizada en 24 horas laborables.</p>
       </div>
-      <form class="contact-form" id="contactForm">
+      <form class="contact-form" id="contactForm" novalidate>
         <div class="form-group">
-          <label>Establecimiento *</label>
-          <input type="text" placeholder="Nombre de tu restaurante, café..." required>
+          <label for="company">Establecimiento *</label>
+          <input type="text" id="company" name="company" placeholder="Nombre de tu restaurante, café..." required>
         </div>
         <div class="form-group">
-          <label>Email *</label>
-          <input type="email" placeholder="tu@email.com" required>
+          <label for="email">Email *</label>
+          <input type="email" id="email" name="email" placeholder="tu@email.com" required>
         </div>
         <div class="form-group">
-          <label>Tipo de negocio</label>
-          <select>
-            <option>Restaurante</option>
-            <option>Cafetería / Bar</option>
-            <option>Hotel</option>
-            <option>Catering</option>
-            <option>Otro</option>
+          <label for="type">Tipo de negocio</label>
+          <select id="type" name="type">
+            <option value="" disabled selected>Selecciona una opción</option>
+            <option value="restaurant">Restaurante</option>
+            <option value="cafe">Cafetería / Bar</option>
+            <option value="hotel">Hotel</option>
+            <option value="traiteur">Catering</option>
+            <option value="autre">Otro</option>
           </select>
         </div>
         <div class="form-group">
-          <label>Mensaje *</label>
-          <textarea placeholder="Describe tu necesidad, volumen estimado..." required></textarea>
+          <label for="message">Mensaje *</label>
+          <textarea id="message" name="message" placeholder="Describe tu necesidad, volumen estimado..." required></textarea>
         </div>
         <div style="margin-bottom:24px;">
-          <input type="checkbox" id="privacy" required>
+          <input type="checkbox" id="privacy" name="privacy" required>
           <label for="privacy" style="font-size:0.8rem; color:var(--text-muted);">Acepto la <a href="politica-de-privacidad.html" style="color:var(--wheat);">política de privacidad</a>.</label>
         </div>
         <button type="submit" class="btn btn-dark" style="width:100%;">Enviar mensaje</button>
@@ -235,10 +236,59 @@
 
   <script src="js/main.js"></script>
   <script>
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
+    // Manejo robusto del formulario
+    document.getElementById('contactForm').addEventListener('submit', async function(e) {
       e.preventDefault();
-      this.style.display = 'none';
-      document.getElementById('formSuccess').style.display = 'block';
+      
+      const form = this;
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const successMsg = document.getElementById('formSuccess');
+      
+      // Validación básica
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      // Verificar checkbox de privacidad
+      if (!document.getElementById('privacy').checked) {
+        alert("Por favor, acepta la política de privacidad.");
+        return;
+      }
+
+      // Preparar UI para carga
+      const originalBtnText = submitBtn.innerHTML;
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = 'Enviando...';
+
+      try {
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData.entries());
+        data.lang = 'es'; // Identificación para la API
+
+        const response = await fetch('/api/contact', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data),
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+          form.style.display = 'none';
+          successMsg.style.display = 'block';
+          successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        } else {
+          throw new Error(result.error || "Error al enviar");
+        }
+      } catch (err) {
+        console.error(err);
+        alert("Lo sentimos, ha ocurrido un error al enviar el mensaje: " + err.message);
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalBtnText;
+      }
     });
   </script>
 </body>

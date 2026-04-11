@@ -656,15 +656,59 @@
 
   <script src="js/main.js"></script>
   <script>
-    // Simple form handler
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
+    // Robust form handler
+    document.getElementById('contactForm').addEventListener('submit', async function(e) {
       e.preventDefault();
-      if (!this.checkValidity()) {
-        this.reportValidity();
+      
+      const form = this;
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const successMsg = document.getElementById('formSuccess');
+      
+      // Basic validation check
+      if (!form.checkValidity()) {
+        form.reportValidity();
         return;
       }
-      this.style.display = 'none';
-      document.getElementById('formSuccess').style.display = 'block';
+
+      // Check privacy checkbox specifically
+      if (!document.getElementById('privacy').checked) {
+        alert("Veuillez accepter la politique de confidentialité.");
+        return;
+      }
+
+      // Prepare UI for loading
+      const originalBtnText = submitBtn.innerHTML;
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = 'Envoi en cours...';
+
+      try {
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData.entries());
+        data.lang = 'fr'; // Identification for the API
+
+        const response = await fetch('/api/contact', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data),
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+          form.style.display = 'none';
+          successMsg.style.display = 'block';
+          successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        } else {
+          throw new Error(result.error || "Erreur lors de l'envoi");
+        }
+      } catch (err) {
+        console.error(err);
+        alert("Désolé, une erreur est survenue lors de l'envoi du message : " + err.message);
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalBtnText;
+      }
     });
   </script>
 </body>
