@@ -3,14 +3,42 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Utensilios Comestibles — Alternativa Residuo Cero | BESTCUIT</title>
-  <meta name="description" content="Descubre nuestros agitadores y utensilios comestibles, una solución deliciosa y ecológica para tus descansos de café y comidas. Cero plástico, residuo cero.">
+  <title>Cubiertos Comestibles — Alternativa Residuo Cero | BESTCUIT</title>
+  <meta name="description" content="Descubre nuestros removedores y cubiertos comestibles, una solución deliciosa y ecológica para tus descansos de café y comidas. Cero plástico, residuo cero.">
   <link rel="icon" href="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=32,h=32,fit=crop,f=png/ALpPMbl95zt93znw/galleta-sin-fondo-A1a5przloocRGwKr.png">
   <link rel="stylesheet" href="css/styles.css">
   <!-- Hreflang for international SEO -->
   <link rel="alternate" hreflang="fr" href="https://www.bestcuit.fr/">
   <link rel="alternate" hreflang="es" href="https://www.bestcuit.es/">
   <link rel="alternate" hreflang="x-default" href="https://www.bestcuit.fr/">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://www.bestcuit.es/#organization",
+        "name": "BESTCUIT",
+        "url": "https://www.bestcuit.es",
+        "logo": "https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=600,h=600,fit=crop,f=png/ALpPMbl95zt93znw/galleta-sin-fondo-A1a5przloocRGwKr.png",
+        "description": "Expertos en cubiertos comestibles y biodegradables. Una alternativa deliciosa y ecológica al plástico de un solo uso.",
+        "sameAs": [
+          "https://www.instagram.com/bestcuit.fr/",
+          "https://www.facebook.com/profile.php?id=61582842930568",
+          "https://www.linkedin.com/company/bestcuit/"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://www.bestcuit.es/#website",
+        "url": "https://www.bestcuit.es",
+        "name": "BESTCUIT — Cubiertos comestibles",
+        "publisher": { "@id": "https://www.bestcuit.es/#organization" },
+        "inLanguage": "es"
+      }
+    ]
+  }
+  </script>
   <style>
     .hero {
       padding: 120px 0 80px;
@@ -18,9 +46,7 @@
       position: relative;
       overflow: hidden;
     }
-    .hero-bg-gradient {
-      display: none;
-    }
+    .hero-bg-gradient { display: none; }
     .hero-grain {
       position: absolute;
       inset: 0;
@@ -60,6 +86,60 @@
       align-items: flex-start;
       padding-top: 20px;
     }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--wheat);
+      margin-bottom: 28px;
+      opacity: 0;
+      animation: fadeSlideUp 0.8s var(--ease-out-expo) 0.3s forwards;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      width: 28px;
+      height: 1px;
+      background: var(--wheat);
+    }
+    .hero-title {
+      font-family: var(--ff-display);
+      font-size: clamp(3.2rem, 6.5vw, 6rem);
+      font-weight: 500;
+      color: var(--cream);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin-bottom: 28px;
+      opacity: 0;
+      animation: fadeSlideUp 0.9s var(--ease-out-expo) 0.5s forwards;
+    }
+    .hero-title em {
+      font-style: italic;
+      color: var(--wheat-light);
+    }
+    .hero-subtitle {
+      font-size: 1.05rem;
+      color: rgba(244, 218, 195, 0.6);
+      line-height: 1.75;
+      max-width: 520px;
+      margin: 32px auto 28px;
+      text-align: center;
+      opacity: 0;
+      animation: fadeSlideUp 0.9s var(--ease-out-expo) 0.7s forwards;
+    }
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeSlideUp 0.9s var(--ease-out-expo) 0.9s forwards;
+      margin-bottom: 2rem;
+    }
     .hero-image-wrap {
       position: relative;
       opacity: 0;
@@ -80,12 +160,14 @@
       height: 100%;
       object-fit: contain;
       padding: 16px;
+      transition: transform 8s ease;
     }
+    .hero-image-frame:hover img { transform: scale(1.03); }
     .hero-image-badge {
       position: absolute;
       bottom: 24px;
       left: 24px;
-      background: rgba(22,12,4,0.85);
+      background: rgba(22, 12, 4, 0.85);
       backdrop-filter: blur(12px);
       border: 1px solid rgba(215, 125, 40, 0.4);
       border-radius: var(--radius);
@@ -105,67 +187,55 @@
       color: var(--cream);
       font-weight: 500;
     }
-    .why-header {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      align-items: center;
-      margin-bottom: 48px;
-    }
-    .why-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-    .why-card {
-      background: var(--white);
-      border-radius: var(--radius-lg);
-      padding: 36px 28px;
-      border: 1px solid rgba(212, 184, 150, 0.4);
-      position: relative;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      transition: all 0.4s var(--ease-out-expo);
-    }
-    .why-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 3px;
-      background: var(--wheat);
-      transform: scaleX(0);
-      transition: transform 0.35s var(--ease-out-expo);
-    }
-    .why-card:hover { transform: translateY(-6px); border-color: rgba(215, 125, 40, 0.3); }
-    .why-card:hover::before { transform: scaleX(1); }
-    .why-icon {
-      border-radius: 14px;
-      background: var(--cream-dark);
-      margin-bottom: 24px;
-      padding: 20px;
-      text-align: center;
-    }
-    .why-card h3 {
-      font-family: var(--ff-display);
-      font-size: 1.1rem;
-      font-weight: 500;
-      color: var(--text);
-      line-height: 1.4;
-      text-align: center;
-      margin-bottom: 12px;
-    }
-    .why-card p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.7; text-align: center; }
-
+    .marquee-section { background: var(--forest); padding: 0; }
+    .marquee-section .marquee-wrap { border-color: rgba(215, 125, 40, 0.2); }
+    .marquee-section .marquee-track span { color: rgba(244, 218, 195, 0.45); }
+    .marquee-dot { color: var(--wheat); margin: 0 8px; }
+    .why-section { padding: 120px 0; background: var(--cream-soft); }
+    .why-header { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; margin-bottom: 48px; }
+    .why-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; max-width: 900px; margin: 0 auto; }
+    .why-card { background: var(--white); border-radius: var(--radius-lg); padding: 36px 28px; border: 1px solid rgba(212, 184, 150, 0.4); transition: all 0.4s var(--ease-out-expo); cursor: default; }
+    .why-card:hover { transform: translateY(-6px); box-shadow: 0 24px 60px rgba(44,31,16,0.1); border-color: rgba(215,125,40,0.3); }
+    .why-icon { border-radius: 14px; background: var(--cream-dark); padding: 20px; margin-bottom: 24px; text-align: center; }
+    .why-card h3 { font-family: var(--ff-display); font-size: 1.1rem; font-weight: 500; color: var(--text); margin-bottom: 12px; }
+    .why-card p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.7; }
+    .products-section { padding: 120px 0; background: var(--espresso); position: relative; overflow: hidden; }
+    .product-card { background: rgba(244, 218, 195, 0.04); border: 1px solid rgba(244, 218, 195, 0.1); border-radius: var(--radius-lg); overflow: hidden; transition: all 0.4s var(--ease-out-expo); }
+    .product-card:hover { background: rgba(244, 218, 195, 0.07); transform: translateY(-8px); border-color: rgba(215, 125, 40, 0.4); }
+    .product-image { height: 340px; display: flex; align-items: center; justify-content: center; background: rgba(99, 57, 18, 0.4); }
+    .product-image img { height: 80%; width: auto; object-fit: contain; filter: drop-shadow(0 20px 40px rgba(0,0,0,0.5)); transition: transform 0.6s var(--ease-out-expo); }
+    .product-card:hover .product-image img { transform: scale(1.06) translateY(-6px); }
+    .product-info { padding: 28px; }
+    .product-tag { font-size: 0.68rem; font-weight: 700; color: var(--wheat); text-transform: uppercase; margin-bottom: 10px; display: block; }
+    .product-info h3 { font-family: var(--ff-display); font-size: 1.6rem; color: var(--cream); margin-bottom: 10px; }
+    .product-info p { font-size: 0.875rem; color: rgba(244, 218, 195, 0.5); line-height: 1.65; margin-bottom: 20px; }
+    .product-link { color: var(--wheat-light); font-weight: 600; text-transform: uppercase; font-size: 0.8rem; display: inline-flex; align-items: center; gap: 8px; }
+    .gallery-section { padding: 120px 0; background: var(--cream-soft); }
+    .usage-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+    .usage-card { background: var(--white); border-radius: var(--radius-lg); overflow: hidden; border: 1px solid rgba(212, 184, 150, 0.4); transition: all 0.4s var(--ease-out-expo); }
+    .usage-illus { background: var(--cream-soft); height: 220px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+    .usage-illus img { max-height: 160px; filter: drop-shadow(0 8px 24px rgba(99, 57, 18, 0.25)); }
+    .usage-info { padding: 24px; }
+    .stats-section { background: var(--forest-mid); padding: 60px 0; position: relative; }
+    .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); text-align: center; }
+    .stat-number { font-family: var(--ff-display); font-size: 3.5rem; color: var(--cream); line-height: 1; }
+    .stat-label { font-size: 0.8rem; color: rgba(244, 218, 195, 0.55); max-width: 140px; margin: 8px auto 0; }
+    .cta-section { padding: 140px 0; background: var(--cream-dark); position: relative; overflow: hidden; text-align: center; }
+    .cta-bg-text { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-family: var(--ff-display); font-size: 20vw; font-weight: 700; color: rgba(255, 255, 255, 0.15); white-space: nowrap; pointer-events: none; }
+    
+    @keyframes fadeSlideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeSlideRight { from { opacity: 0; transform: translateX(40px); } to { opacity: 1; transform: translateX(0); } }
+    
     @media (max-width: 1024px) {
-      .hero-inner { grid-template-columns: 1fr; }
+      .hero-inner { grid-template-columns: 1fr; text-align: center; }
       .hero-image-wrap { display: none; }
-      .why-grid { grid-template-columns: repeat(2, 1fr); }
+      .why-grid { grid-template-columns: 1fr; }
+      .stats-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+      .usage-grid { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 768px) {
-      .why-grid { grid-template-columns: 1fr; }
+      .usage-grid { grid-template-columns: 1fr; }
+      .stats-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -190,9 +260,7 @@
         <span class="lang-separator">|</span>
         <a href="https://www.bestcuit.es/" class="lang-link active" lang="es">ES</a>
       </div>
-      <button class="nav-toggle" aria-label="Menú">
-        <span></span><span></span><span></span>
-      </button>
+      <button class="nav-toggle" aria-label="Menú"><span></span><span></span><span></span></button>
     </div>
   </nav>
 
@@ -204,8 +272,9 @@
     <div class="container">
       <div class="hero-inner">
         <div class="hero-content">
-          <h1 class="hero-title" style="text-align:center;">
-            Utensilios<br>
+          <p class="hero-eyebrow">La nueva era de la restauración</p>
+          <h1 class="hero-title">
+            Cubiertos<br>
             <em>comestibles,</em><br>
             deliciosos<br>
             y ecológicos.
@@ -220,15 +289,10 @@
             </div>
           </div>
           <p class="hero-subtitle">
-            En BESTCUIT, transformamos tus descansos con cucharas, tenedores y agitadores — todos hechos de galleta crujiente. Plástico cero, 100% sabroso.
+            En BESTCUIT transformamos tus pausas gourmet con cucharas, tenedores y removedores — todos hechos de galleta crujiente. Cero plástico, 100% sabroso.
           </p>
           <div class="hero-actions">
-            <a href="catalogo.html" class="btn btn-primary">
-              Descubrir productos
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                <path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </a>
+            <a href="catalogo.html" class="btn btn-primary">Descubrir productos</a>
             <a href="acerca-de.html" class="btn btn-outline">Nuestra historia</a>
           </div>
         </div>
@@ -240,22 +304,14 @@
   <div class="marquee-section">
     <div class="marquee-wrap">
       <div class="marquee-track">
-        <span>Residuo Cero</span>
-        <span class="marquee-dot">◆</span>
-        <span>100% Comestible</span>
-        <span class="marquee-dot">◆</span>
-        <span>Vegano y Sin Gluten</span>
-        <span class="marquee-dot">◆</span>
-        <span>Biodegradable</span>
-        <span class="marquee-dot">◆</span>
-        <span>Resistente al calor</span>
-        <span class="marquee-dot">◆</span>
-        <span>12 meses de duración</span>
-        <span class="marquee-dot">◆</span>
-        <span>Certificado HORECA</span>
-        <span class="marquee-dot">◆</span>
-        <span>Plástico Cero</span>
-        <span class="marquee-dot">◆</span>
+        <span>Cero Plástico</span> <span class="marquee-dot">◆</span>
+        <span>100% Comestible</span> <span class="marquee-dot">◆</span>
+        <span>Vegano y Sin Gluten</span> <span class="marquee-dot">◆</span>
+        <span>Biodegradable</span> <span class="marquee-dot">◆</span>
+        <span>Resistente al calor</span> <span class="marquee-dot">◆</span>
+        <span>12 meses de duración</span> <span class="marquee-dot">◆</span>
+        <span>Certificado HORECA</span> <span class="marquee-dot">◆</span>
+        <span>Cero Plástico</span> <span class="marquee-dot">◆</span>
       </div>
     </div>
   </div>
@@ -264,31 +320,26 @@
   <section class="why-section section-fade-down-dark">
     <div class="container">
       <div class="reveal" style="text-align:center; margin-bottom: 48px;">
-        <div class="section-label" style="justify-content:center;">
-          Por qué elegirnos
-          <span style="width:24px;height:1px;background:var(--wheat);display:block;"></span>
-        </div>
-        <h2 class="section-title" style="margin:0 auto 12px;">Ventajas <em>claras</em><br>para tu negocio</h2>
-        <p class="section-subtitle" style="margin:0 auto; max-width:700px; text-align:center;">
-          BESTCUIT se integra naturalmente en tu establecimiento — desde la cafetería hasta el restaurante — ofreciendo una experiencia única mientras cuidamos el planeta.
-        </p>
+        <div class="section-label" style="justify-content:center;">Por qué elegirnos</div>
+        <h2 class="section-title">Ventajas <em>claras</em><br>para tu negocio</h2>
+        <p class="section-subtitle" style="margin:20px auto 0;">BESTCUIT se integra naturalmente en tu establecimiento — de la cafetería al restaurante — ofreciendo una experiencia única y sostenible.</p>
       </div>
-      <div class="why-grid" data-stagger>
+      <div class="why-grid">
         <div class="why-card reveal">
           <div class="why-icon"><h3>Compromiso ecológico</h3></div>
-          <p>Reduce drásticamente los plásticos con cubiertos 100% comestibles y biodegradables. Tu negocio lidera la transición ecológica.</p>
+          <p>Reduce significativamente los residuos plásticos. Tu empresa contribuye activamente a la transición ecológica con cada cubierto.</p>
         </div>
         <div class="why-card reveal">
-          <div class="why-icon"><h3>Experiencia mejorada</h3></div>
-          <p>Ofrece a tus clientes un momento innovador y sabroso que aporta valor a tu marca y crea recuerdos memorables.</p>
+          <div class="why-icon"><h3>Experiencia del cliente</h3></div>
+          <p>Ofrece una innovación gastronómica única que valora tu establecimiento y crea momentos memorables en cada comida.</p>
         </div>
         <div class="why-card reveal">
           <div class="why-icon"><h3>Objetivos sostenibles</h3></div>
-          <p>Nuestros cubiertos refuerzan tus compromisos en RSC y responden a la creciente demanda de sostenibilidad de tus clientes.</p>
+          <p>Nuestros cubiertos refuerzan tus compromisos de desarrollo sostenible ante clientes y socios comerciales.</p>
         </div>
         <div class="why-card reveal">
           <div class="why-icon"><h3>Calidad profesional</h3></div>
-          <p>Productos robustos diseñados para HORECA. Resistencia al calor, larga vida útil y sabores impecables.</p>
+          <p>Productos robustos adaptados al sector HORECA. Resistentes al calor, larga duración y sabores impecables.</p>
         </div>
       </div>
     </div>
@@ -299,187 +350,78 @@
     <div class="container">
       <div class="stats-grid">
         <div class="stat-item reveal">
-          <div class="stat-number"><span data-target="100" data-suffix="%">0%</span></div>
+          <div class="stat-number">100%</div>
           <div class="stat-label">Comestible y biodegradable</div>
         </div>
         <div class="stat-item reveal">
-          <div class="stat-number"><span data-target="12" data-suffix=" meses">0</span></div>
-          <div class="stat-label">Vida útil garantizada</div>
+          <div class="stat-number">12</div>
+          <div class="stat-label">Meses de conservación garantizados</div>
         </div>
         <div class="stat-item reveal">
-          <div class="stat-number"><span data-target="30" data-suffix=" min">0</span></div>
-          <div class="stat-label">Resistencia en bebida a 100°C</div>
+          <div class="stat-number">30 min</div>
+          <div class="stat-label">Resistencia en bebida caliente a 100°C</div>
         </div>
         <div class="stat-item reveal">
-          <div class="stat-number"><span data-target="60" data-suffix="%">0%</span></div>
-          <div class="stat-label">Embalaje compostable</div>
+          <div class="stat-number">60%</div>
+          <div class="stat-label">Embalaje compostable o reciclado</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- PRODUCTS PREVIEW -->
+  <!-- PRODUCTOS -->
   <section class="products-section section-fade-down">
-    <div class="products-grain"></div>
     <div class="container">
-      <div class="products-header">
-        <div class="reveal-left">
-          <div class="section-label" style="color:var(--wheat-light);">
-            <span style="background:var(--wheat-light);display:block;width:24px;height:1px;margin-right:8px;"></span>
-            Nuestro catálogo
-          </div>
-          <h2 class="section-title" style="color:var(--cream);">La gama <em style="color:var(--wheat-light);">Use&amp;Eat</em></h2>
-        </div>
-        <a href="catalogo.html" class="btn btn-outline reveal-right">Ver todo el catálogo</a>
+      <div class="reveal-left" style="margin-bottom: 48px;">
+        <div class="section-label">Nuestro catálogo</div>
+        <h2 class="section-title" style="color:var(--cream);">Gama <em style="color:var(--wheat-light);">Use&amp;Eat</em></h2>
       </div>
       <div class="products-grid">
-        <!-- 01 Touillette -->
         <div class="product-card reveal">
-          <div class="product-image">
-            <span class="product-number">01</span>
-            <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=768,h=4023,fit=crop/ALpPMbl95zt93znw/removedor-ULB0oe3knjsalfDd.png" alt="La Touillette">
-          </div>
+          <div class="product-image"><img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=768,h=4023,fit=crop/ALpPMbl95zt93znw/removedor-ULB0oe3knjsalfDd.png" alt="Removedor"></div>
           <div class="product-info">
             <span class="product-tag">Café y Té</span>
-            <h3>La Touillette</h3>
-            <p>Agitador crujiente. Resiste 30 min a 100°C. Se come después de usar.</p>
-            <div class="product-specs">
-              <span class="product-spec">14 cm</span>
-              <span class="product-spec">4 g</span>
-              <span class="product-spec">Vainilla</span>
-            </div>
+            <h3>El Removedor</h3>
+            <p>Agitador crujiente para café y té. Resiste 30 min a 100°C. Se disfruta después de usar.</p>
             <a href="catalogo.html#touillette" class="product-link">Saber más</a>
           </div>
         </div>
-        <!-- 02 Tenedor -->
-        <div class="product-card reveal" style="transition-delay:0.1s;">
-          <div class="product-image">
-            <span class="product-number">02</span>
-            <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=768,h=2557,fit=crop/ALpPMbl95zt93znw/tenedor-mP3CPrR0x0pQ9L9G.png" alt="El Tenedor">
-          </div>
+        <div class="product-card reveal">
+          <div class="product-image"><img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=768,h=2557,fit=crop/ALpPMbl95zt93znw/tenedor-mP3CPrR0x0pQ9L9G.png" alt="Tenedor"></div>
           <div class="product-info">
-            <span class="product-tag">Ensaldas y Comidas</span>
+            <span class="product-tag">Ensaladas y Comidas</span>
             <h3>El Tenedor</h3>
-            <p>Ideal para ensaladas y platos variados. Sabor natural tipo cracker.</p>
-            <div class="product-specs">
-              <span class="product-spec">12 cm</span>
-              <span class="product-spec">10 g</span>
-              <span class="product-spec">Natural</span>
-            </div>
+            <p>Ideal para platos vegetarianos y comidas ligeras. Sabor neutro tipo cracker.</p>
             <a href="catalogo.html#fourchette" class="product-link">Saber más</a>
           </div>
         </div>
-        <!-- 03 Cuchara -->
-        <div class="product-card reveal" style="transition-delay:0.2s;">
-          <div class="product-image">
-            <span class="product-number">03</span>
-            <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=768,h=2004,fit=crop/ALpPMbl95zt93znw/cuchara-u1F1a3jp50kAuOJp.png" alt="La Cuchara">
-          </div>
-          <div class="product-info">
-            <span class="product-tag">Postres y Sopas</span>
-            <h3>La Cuchara</h3>
-            <p>Perfecta para yogures y postres. Se mantiene firme toda la comida.</p>
-            <div class="product-specs">
-              <span class="product-spec">12 cm</span>
-              <span class="product-spec">10 g</span>
-              <span class="product-spec">Canela</span>
-            </div>
-            <a href="catalogo.html#cuillere" class="product-link">Saber más</a>
-          </div>
-        </div>
-        <!-- 04 Palettina -->
-        <div class="product-card reveal" style="transition-delay:0.3s;">
-          <div class="product-image">
-            <span class="product-number">04</span>
-            <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=768,h=1045,fit=crop/ALpPMbl95zt93znw/paletina-GvQUN6B2o7rAuo9L.png" alt="La Palettina">
-          </div>
-          <div class="product-info">
-            <span class="product-tag">Helados y Sorbetes</span>
-            <h3>La Palettina</h3>
-            <p>Diseñada para helados. No se ablanda con el frío. Sabor vainilla.</p>
-            <div class="product-specs">
-              <span class="product-spec">6.5 cm</span>
-              <span class="product-spec">4 g</span>
-              <span class="product-spec">Vainilla</span>
-            </div>
-            <a href="catalogo.html#palettine" class="product-link">Saber más</a>
-          </div>
-        </div>
       </div>
     </div>
   </section>
 
-  <!-- GALLERY -->
+  <!-- GALERIA -->
   <section class="gallery-section section-fade-down-dark">
     <div class="container">
-      <div class="reveal" style="text-align:center;">
-        <div class="section-label" style="justify-content:center;">
-          BESTCUIT en acción
-          <span style="width:24px;height:1px;background:var(--wheat);display:block;"></span>
-        </div>
-        <h2 class="section-title" style="margin:0 auto 12px;">Descubre nuestros utensilios<br><em>en tus momentos favoritos</em></h2>
-        <p class="section-subtitle" style="margin:0 auto 60px;text-align:center;">Del café de la mañana al helado de la tarde — un placer para morder en cada instante.</p>
+      <div class="reveal" style="text-align:center; margin-bottom: 60px;">
+        <div class="section-label" style="justify-content:center;">BESTCUIT en acción</div>
+        <h2 class="section-title">Momentos <em>gourmet</em></h2>
       </div>
-      <div class="usage-grid" data-stagger>
+      <div class="usage-grid">
         <div class="usage-card reveal">
-          <div class="usage-illus"><img src="img/cafe para llevar removedor dibujo.png" alt="Café con touillette"></div>
-          <div class="usage-info">
-            <span class="usage-tag">Café y Té</span>
-            <h3>Pausa café</h3>
-            <p>Remueve, disfruta, muerde. La Touillette se savorea como un dulce acompañamiento.</p>
-          </div>
+          <div class="usage-illus"><img src="img/cafe para llevar removedor dibujo.png" alt="Café"></div>
+          <div class="usage-info"><h3>Pausa café</h3><p>Remueve, saborea y muerde. El Removedor es el complemento perfecto.</p></div>
         </div>
         <div class="usage-card reveal">
-          <div class="usage-illus"><img src="img/paletina helado dibujo.png" alt="Helado con paletina"></div>
-          <div class="usage-info">
-            <span class="usage-tag">Helados</span>
-            <h3>Helado crujiente</h3>
-            <p>La Palettina resiste el frío y se muerde con tu helado — doble placer, plástico cero.</p>
-          </div>
+          <div class="usage-illus"><img src="img/paletina helado dibujo.png" alt="Helado"></div>
+          <div class="usage-info"><h3>Helado crujiente</h3><p>La Paletina resiste el frío y se muerde con tu helado. Cero plástico.</p></div>
         </div>
         <div class="usage-card reveal">
-          <div class="usage-illus"><img src="img/plato comida tenedor dibujo.png" alt="Comida con tenedor"></div>
-          <div class="usage-info">
-            <span class="usage-tag">Comidas</span>
-            <h3>Comida responsable</h3>
-            <p>El Tenedor cruje y combina con tus ensaladas o pastas sin dejar rastro de residuo.</p>
-          </div>
+          <div class="usage-illus"><img src="img/plato comida tenedor dibujo.png" alt="Comida"></div>
+          <div class="usage-info"><h3>Comida responsable</h3><p>El Tenedor crujiente se adapta a todos tus platos sin dejar rastro.</p></div>
         </div>
         <div class="usage-card reveal">
-          <div class="usage-illus"><img src="img/cuchara bowl dibujo.png" alt="Bowl con cuchara"></div>
-          <div class="usage-info">
-            <span class="usage-tag">Postres</span>
-            <h3>Postre sin residuo</h3>
-            <p>La Cuchara se mantiene firme del primer al último bocado — ideal para yogures y sopas.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROCESS -->
-  <section class="process-section section-fade-down-dark">
-    <div class="container">
-      <div class="reveal" style="text-align:center;">
-        <div class="section-label" style="justify-content:center;">Empieza ahora <span style="width:24px;height:1px;background:var(--wheat);display:block;"></span></div>
-        <h2 class="section-title" style="margin:0 auto 16px;">En 3 sencillos pasos,<br><em>transforma tus comidas</em></h2>
-        <p class="section-subtitle" style="margin:0 auto;text-align:center;">Descubre y convence a tu equipo y clientes con nuestra solución innovadora.</p>
-      </div>
-      <div class="process-steps">
-        <div class="process-step reveal">
-          <div class="step-num">1</div>
-          <h3>Contáctanos</h3>
-          <p>Solicita tu oferta personalizada adaptada a tu establecimiento y necesidades.</p>
-        </div>
-        <div class="process-step reveal" style="transition-delay:0.1s;">
-          <div class="step-num">2</div>
-          <h3>Formación rápida</h3>
-          <p>Bastarán 15 min para formar a tu equipo. Disponemos de material explicativo para clientes.</p>
-        </div>
-        <div class="process-step reveal" style="transition-delay:0.2s;">
-          <div class="step-num">3</div>
-          <h3>Impulsa tus ventas</h3>
-          <p>Ofrece una experiencia única. Tus clientes se convertirán en tus mejores embajadores.</p>
+          <div class="usage-illus"><img src="img/cuchara bowl dibujo.png" alt="Postre"></div>
+          <div class="usage-info"><h3>Postre residuo cero</h3><p>La Cuchara se mantiene firme hasta el final. Ideal para yogures y postres.</p></div>
         </div>
       </div>
     </div>
@@ -487,16 +429,12 @@
 
   <!-- CTA -->
   <section class="cta-section">
-    <div class="cta-bg-text">Use&amp;Eat</div>
+    <div class="cta-bg-text">Use&Eat</div>
     <div class="container">
       <div class="cta-inner">
-        <div class="section-label reveal">Revolución Comestible</div>
-        <h2 class="reveal">¿Listo para unirte a la<br><em>revolución comestible</em>?</h2>
-        <p class="reveal">Descubre cómo BESTCUIT puede transformar la experiencia de tus clientes y tus compromisos sostenibles.</p>
-        <div class="cta-actions reveal">
-          <a href="catalogo.html" class="btn btn-primary">Ver el catálogo</a>
-          <a href="contacto.html" class="btn btn-outline">Contacto</a>
-        </div>
+        <h2 class="reveal">¿Listo para la<br><em>revolución comestible</em>?</h2>
+        <p class="reveal">Primer mes de prueba sin compromiso. Descubre cómo transformar la experiencia de tus clientes.</p>
+        <a href="contacto.html" class="btn btn-primary reveal">Contactar ahora</a>
       </div>
     </div>
   </section>
@@ -506,50 +444,24 @@
     <div class="container">
       <div class="footer-inner">
         <div class="footer-brand">
-          <div class="footer-logo"><img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=64,h=64,fit=crop,f=png/ALpPMbl95zt93znw/galleta-sin-fondo-A1a5przloocRGwKr.png" alt="BESTCUIT"> BESTCUIT</div>
-          <p>Cubiertos comestibles, deliciosos y ecológicos. Transforma tus comidas con utensilios 100% biodegradables.</p>
-          <div class="footer-social">
-            <a href="https://www.instagram.com/bestcuit.fr/" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
-            </a>
-            <a href="https://www.facebook.com/profile.php?id=61582842930568" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-            </a>
-            <a href="https://www.linkedin.com/company/bestcuit/posts/?feedView=all" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
-            </a>
-          </div>
+          <div class="footer-logo">BESTCUIT</div>
+          <p>Cubiertos comestibles, deliciosos y ecológicos. Transforma tus pausas gourmet.</p>
         </div>
         <div class="footer-col">
           <h4>Navegación</h4>
           <ul>
             <li><a href="index.html">Inicio</a></li>
             <li><a href="acerca-de.html">Nosotros</a></li>
-            <li><a href="compromiso.html">Compromiso</a></li>
             <li><a href="catalogo.html">Catálogo</a></li>
             <li><a href="contacto.html">Contacto</a></li>
           </ul>
         </div>
-        <div class="footer-col">
-          <h4>Productos</h4>
-          <ul>
-            <li><a href="catalogo.html#touillette">La Touillette</a></li>
-            <li><a href="catalogo.html#fourchette">El Tenedor</a></li>
-            <li><a href="catalogo.html#cuillere">La Cuchara</a></li>
-            <li><a href="catalogo.html#palettine">La Palettina</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Contacto</h4>
-          <div class="footer-contact-item">contact@bestcuit.fr</div>
-          <div class="footer-contact-item">+33 769 71 06 27</div>
-        </div>
       </div>
       <div class="footer-bottom">
-        <p>BESTCUIT — Eco-innovación y Sabor</p>
+        <p>&copy; 2024 BESTCUIT — Eco-innovación y Sabor</p>
         <div class="footer-bottom-links">
-          <a href="politica-de-privacidad.html">Política de privacidad</a>
-          <a href="condiciones-generales.html">Condiciones generales</a>
+          <a href="politica-de-privacidad.html">Privacidad</a>
+          <a href="condiciones-generales.html">Condiciones</a>
         </div>
       </div>
     </div>

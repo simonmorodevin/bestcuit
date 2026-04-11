@@ -3,73 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contacto — Solicitud de información | BESTCUIT</title>
+  <title>Contacto — Solicitar Información | BESTCUIT</title>
   <meta name="description" content="Contáctanos para más información sobre nuestros cubiertos comestibles. Estamos aquí para responder a tus preguntas.">
   <link rel="icon" href="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=32,h=32,fit=crop,f=png/ALpPMbl95zt93znw/galleta-sin-fondo-A1a5przloocRGwKr.png">
   <link rel="stylesheet" href="css/styles.css">
-  <!-- Hreflang for international SEO -->
   <link rel="alternate" hreflang="fr" href="https://www.bestcuit.fr/contact.html">
   <link rel="alternate" hreflang="es" href="https://www.bestcuit.es/contacto.html">
   <link rel="alternate" hreflang="x-default" href="https://www.bestcuit.fr/contact.html">
   <style>
-    .nav.scrolled {
-      background: var(--forest);
-      backdrop-filter: none;
-      border-bottom: none;
-    }
-    .contact-header {
-      background: var(--forest);
-      min-height: 40vh;
-      display: flex;
-      align-items: center;
-      padding: 60px 0 40px;
-      position: relative;
-      overflow: hidden;
-    }
-    .contact-header::before {
-      content: 'CONTACTO';
-      position: absolute;
-      bottom: -20px;
-      right: -20px;
-      font-family: var(--ff-display);
-      font-size: clamp(80px, 16vw, 200px);
-      font-weight: 700;
-      letter-spacing: -0.04em;
-      color: rgba(244, 218, 195, 0.04);
-      pointer-events: none;
-      white-space: nowrap;
-    }
-    .contact-header-grain {
-      position: absolute;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
-      background-size: 200px 200px;
-      pointer-events: none;
-      z-index: 2;
-    }
+    .nav.scrolled { background: var(--forest); backdrop-filter: none; border-bottom: none; }
+    .contact-header { background: var(--forest); min-height: 40vh; display: flex; align-items: center; padding: 60px 0 40px; position: relative; overflow: hidden; }
+    .contact-header::before { content: 'CONTACTO'; position: absolute; bottom: -20px; right: -20px; font-family: var(--ff-display); font-size: clamp(80px, 16vw, 200px); font-weight: 700; color: rgba(244, 218, 195, 0.04); pointer-events: none; white-space: nowrap; }
     .contact-page { min-height: 70vh; background: var(--forest); display: grid; grid-template-columns: 1fr 1fr; }
-    .contact-info { padding: 80px 64px; display: flex; flex-direction: column; justify-content: space-between; background: #2A1808; border-top: 1px solid rgba(244, 218, 195, 0.05); }
+    .contact-info { padding: 80px 64px; background: #2A1808; color: var(--cream); position: relative; }
+    .contact-info .section-label { color: var(--wheat); margin-bottom: 24px; }
     .contact-details { display: flex; flex-direction: column; gap: 20px; margin-bottom: 56px; }
     .contact-detail { display: flex; align-items: flex-start; gap: 16px; }
-    .contact-detail-icon { width: 40px; height: 40px; border-radius: 10px; background: rgba(215, 125, 40, 0.12); border: 1px solid rgba(215, 125, 40, 0.25); display: flex; align-items: center; justify-content: center; color: var(--wheat); }
-    
+    .contact-detail-icon { width: 40px; height: 40px; background: rgba(215, 125, 40, 0.12); border: 1px solid rgba(215, 125, 40, 0.25); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: var(--wheat); }
     .contact-form-panel { background: var(--cream-soft); padding: 80px 64px; display: flex; flex-direction: column; justify-content: center; }
     .form-group { display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px; }
     .form-group label { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: var(--text-muted); }
-    .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 14px 18px; border-radius: var(--radius); border: 1.5px solid rgba(212, 184, 150, 0.5); background: var(--white); outline: none; transition: border-color 0.2s; }
-    .form-group input:focus { border-color: var(--wheat); }
-    
+    .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 14px 18px; border-radius: var(--radius); border: 1.5px solid rgba(212, 184, 150, 0.5); outline: none; }
     .contact-footer-strip { background: var(--white); padding: 100px 0; border-top: 1px solid rgba(153, 88, 28, 0.1); }
     .contact-footer-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
     .cfooter-item { padding: 40px; background: var(--cream-soft); border-radius: var(--radius-lg); text-align: center; border: 1px solid rgba(153, 88, 28, 0.05); }
-
     @media (max-width: 1100px) { .contact-page { grid-template-columns: 1fr; } }
     @media (max-width: 600px) { .contact-footer-grid { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
 
-  <!-- NAVIGATION -->
   <nav class="nav scrolled" id="nav">
     <a href="index.html" class="nav-logo">
       <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=64,h=64,fit=crop,f=png/ALpPMbl95zt93znw/galleta-sin-fondo-A1a5przloocRGwKr.png" alt="BESTCUIT">
@@ -92,18 +55,11 @@
     </div>
   </nav>
 
-  <!-- CONTACT HEADER -->
   <header class="contact-header section-fade-down">
-    <div class="contact-header-grain"></div>
     <div class="container">
-      <div class="hero-grid">
-        <div class="reveal">
-          <p class="hero-eyebrow">Hablemos</p>
-          <h1 class="hero-title">Contácta<em>nos</em></h1>
-        </div>
-        <div class="hero-right">
-          <blockquote class="hero-quote">Estamos aquí para responder a tus preguntas — respuesta garantizada en menos de 24 h.</blockquote>
-        </div>
+      <div class="contact-header-inner reveal">
+        <p class="hero-eyebrow">Hablemos</p>
+        <h1 class="hero-title">Contacta con <em>nosotros</em></h1>
       </div>
     </div>
   </header>
@@ -111,26 +67,22 @@
   <main class="contact-page">
     <div class="contact-info">
       <div class="contact-info-content">
-        <div class="section-label">Nuestros datos</div>
-        <h2>Ponte en <em>contacto</em></h2>
+        <div class="section-label">Coordenadas</div>
+        <h2>Tomar <em>contacto</em></h2>
         <p>Contacta directamente por email o teléfono — estamos disponibles para acompañarte.</p>
         <div class="contact-details">
           <div class="contact-detail">
             <div class="contact-detail-icon">✉</div>
-            <div class="contact-detail-text"><h4>Email</h4><p>contact@bestcuit.fr</p></div>
+            <div class="contact-detail-text"><h4>Email</h4><p><a href="mailto:contact@bestcuit.fr">contact@bestcuit.fr</a></p></div>
           </div>
           <div class="contact-detail">
             <div class="contact-detail-icon">☎</div>
-            <div class="contact-detail-text"><h4>Teléfono España</h4><p>+34 636 59 03 65</p></div>
-          </div>
-          <div class="contact-detail">
-            <div class="contact-detail-icon">☎</div>
-            <div class="contact-detail-text"><h4>Teléfono Francia</h4><p>+33 769 71 06 27</p></div>
+            <div class="contact-detail-text"><h4>Teléfono España</h4><p><a href="tel:+34636590365">+34 636 59 03 65</a></p></div>
           </div>
         </div>
       </div>
       <div class="contact-quote">
-        <blockquote>"Utiliza. Come. Sonríe. Es así de sencillo — y lo cambia todo."</blockquote>
+        <blockquote>"Utiliza. Come. Sonríe. Es así de simple — y lo cambia todo."</blockquote>
         <cite>— El equipo BESTCUIT</cite>
       </div>
     </div>
@@ -140,39 +92,27 @@
         <h2>Envíanos un mensaje</h2>
         <p>Respuesta garantizada en 24 horas laborables.</p>
       </div>
-      <form class="contact-form" id="contactForm" novalidate>
+      <form class="contact-form" id="contactForm">
+        <div style="display:none !important;"><input type="text" name="website"></div>
         <div class="form-group">
-          <label for="company">Establecimiento *</label>
-          <input type="text" id="company" name="company" placeholder="Nombre de tu restaurante, café..." required>
+          <label>Establecimiento <span>*</span></label>
+          <input type="text" name="company" placeholder="Nombre de tu restaurante, café..." required>
         </div>
         <div class="form-group">
-          <label for="email">Email *</label>
-          <input type="email" id="email" name="email" placeholder="tu@email.com" required>
+          <label>Email <span>*</span></label>
+          <input type="email" id="email" name="email" placeholder="tu@establecimiento.es" required>
         </div>
         <div class="form-group">
-          <label for="type">Tipo de negocio</label>
-          <select id="type" name="type">
-            <option value="" disabled selected>Selecciona una opción</option>
-            <option value="restaurant">Restaurante</option>
-            <option value="cafe">Cafetería / Bar</option>
-            <option value="hotel">Hotel</option>
-            <option value="traiteur">Catering</option>
-            <option value="autre">Otro</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="message">Mensaje *</label>
+          <label>Mensaje <span>*</span></label>
           <textarea id="message" name="message" placeholder="Describe tu necesidad, volumen estimado..." required></textarea>
         </div>
-        <div style="margin-bottom:24px;">
-          <input type="checkbox" id="privacy" name="privacy" required>
-          <label for="privacy" style="font-size:0.8rem; color:var(--text-muted);">Acepto la <a href="politica-de-privacidad.html" style="color:var(--wheat);">política de privacidad</a>.</label>
+        <div class="form-submit">
+          <button type="submit" class="btn btn-dark">Enviar mensaje</button>
         </div>
-        <button type="submit" class="btn btn-dark" style="width:100%;">Enviar mensaje</button>
       </form>
-      <div id="formSuccess" style="display:none; text-align:center; padding:40px; background:white; border-radius:16px;">
+      <div id="formSuccess" style="display:none; text-align:center;">
         <h3>¡Mensaje enviado!</h3>
-        <p>Gracias por tu contacto. Te responderemos pronto.</p>
+        <p>Gracias. Te responderemos en menos de 24 horas.</p>
       </div>
     </div>
   </main>
@@ -180,114 +120,52 @@
   <section class="contact-footer-strip">
     <div class="container">
       <div class="contact-footer-grid">
-        <div class="cfooter-item"><h4>Respuesta rápida</h4><p>Respondemos en <strong>24h laborables</strong></p></div>
-        <div class="cfooter-item"><h4>Mes de prueba</h4><p>Prueba BESTCUIT <strong>sin compromiso</strong></p></div>
-        <div class="cfooter-item"><h4>Formación</h4><p>Kit de comunicación y formación <strong>gratis</strong></p></div>
+        <div class="cfooter-item"><h4>Respuesta rápida</h4><p>En menos de 24h laborables</p></div>
+        <div class="cfooter-item"><h4>Mes de prueba</h4><p>Prueba BESTCUIT sin compromiso</p></div>
+        <div class="cfooter-item"><h4>Formación</h4><p>Kit de comunicación incluido</p></div>
       </div>
     </div>
   </section>
 
   <footer class="footer">
     <div class="container">
-      <div class="footer-inner">
-        <div class="footer-brand">
-          <div class="footer-logo"><img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=64,h=64,fit=crop,f=png/ALpPMbl95zt93znw/galleta-sin-fondo-A1a5przloocRGwKr.png" alt="BESTCUIT"> BESTCUIT</div>
-          <p>Utensilios comestibles, deliciosos y ecológicos. Transforma tus comidas con productos 100% biodegradables.</p>
-          <div class="footer-social">
-            <a href="https://www.instagram.com/bestcuit.fr/" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
-            </a>
-            <a href="https://www.facebook.com/profile.php?id=61582842930568" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-            </a>
-            <a href="https://www.linkedin.com/company/bestcuit/posts/?feedView=all" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
-            </a>
-          </div>
-        </div>
-        <div class="footer-col">
-          <h4>Navegación</h4>
-          <ul>
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="acerca-de.html">Nosotros</a></li>
-            <li><a href="compromiso.html">Compromiso</a></li>
-            <li><a href="catalogo.html">Catálogo</a></li>
-            <li><a href="contacto.html">Contacto</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Productos</h4>
-          <ul>
-            <li><a href="catalogo.html#touillette">La Touillette</a></li>
-            <li><a href="catalogo.html#fourchette">El Tenedor</a></li>
-            <li><a href="catalogo.html#cuillere">La Cuchara</a></li>
-            <li><a href="catalogo.html#palettine">La Palettina</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Contacto</h4>
-          <p>contact@bestcuit.fr</p>
-          <p>+33 769 71 06 27</p>
+      <div class="footer-bottom">
+        <p>&copy; 2024 BESTCUIT — Contacto Profesional</p>
+        <div class="footer-bottom-links">
+          <a href="politica-de-privacidad.html">Privacidad</a>
+          <a href="condiciones-generales.html">Condiciones</a>
         </div>
       </div>
-      <div class="footer-bottom"><p>BESTCUIT — Eco-innovación y Sabor</p></div>
     </div>
   </footer>
 
   <script src="js/main.js"></script>
   <script>
-    // Manejo robusto del formulario
     document.getElementById('contactForm').addEventListener('submit', async function(e) {
       e.preventDefault();
-      
       const form = this;
-      const submitBtn = form.querySelector('button[type="submit"]');
-      const successMsg = document.getElementById('formSuccess');
-      
-      // Validación básica
-      if (!form.checkValidity()) {
-        form.reportValidity();
-        return;
-      }
-
-      // Verificar checkbox de privacidad
-      if (!document.getElementById('privacy').checked) {
-        alert("Por favor, acepta la política de privacidad.");
-        return;
-      }
-
-      // Preparar UI para carga
-      const originalBtnText = submitBtn.innerHTML;
+      const submitBtn = form.querySelector('button');
       submitBtn.disabled = true;
-      submitBtn.innerHTML = 'Enviando...';
-
+      submitBtn.innerText = 'Enviando...';
       try {
         const formData = new FormData(form);
         const data = Object.fromEntries(formData.entries());
-        data.lang = 'es'; // Identificación para la API
-
+        data.lang = 'es';
         const response = await fetch('/api/contact', {
           method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
+          headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(data),
         });
-
-        const result = await response.json();
-
         if (response.ok) {
           form.style.display = 'none';
-          successMsg.style.display = 'block';
-          successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          document.getElementById('formSuccess').style.display = 'block';
         } else {
-          throw new Error(result.error || "Error al enviar");
+          throw new Error("Error en el envío");
         }
       } catch (err) {
-        console.error(err);
-        alert("Lo sentimos, ha ocurrido un error al enviar el mensaje: " + err.message);
+        alert("Error: " + err.message);
         submitBtn.disabled = false;
-        submitBtn.innerHTML = originalBtnText;
+        submitBtn.innerText = 'Enviar mensaje';
       }
     });
   </script>

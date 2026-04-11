@@ -1,5 +1,16 @@
 /* BESTCUIT — Shared JS */
 
+// Parallax scrolling effect
+const parallaxElements = document.querySelectorAll('[data-parallax]');
+if (parallaxElements.length) {
+  window.addEventListener('scroll', () => {
+    parallaxElements.forEach(el => {
+      const speed = el.dataset.parallax || 0.5;
+      el.style.transform = `translateY(${window.scrollY * speed}px)`;
+    });
+  });
+}
+
 // Nav scroll behavior
 const nav = document.querySelector('.nav');
 if (nav) {
@@ -8,28 +19,43 @@ if (nav) {
   });
 }
 
-// Reveal on scroll
-const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+// Stagger children
+document.querySelectorAll('[data-stagger]').forEach(parent => {
+  Array.from(parent.children).forEach((child, i) => {
+    child.dataset.delay = i * 15;
+    child.classList.add('reveal');
+  });
+});
+
+// Reveal on scroll with advanced effects
+const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-zoom, .reveal-blur');
 if (revealEls.length) {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry, i) => {
       if (entry.isIntersecting) {
         const delay = entry.target.dataset.delay || 0;
-        setTimeout(() => entry.target.classList.add('revealed'), delay);
+        const baseDelay = parseInt(entry.target.dataset.staggerDelay || 0);
+        setTimeout(() => {
+          entry.target.classList.add('revealed');
+          // Add a subtle animation pulse
+          entry.target.style.animation = 'none';
+          setTimeout(() => {
+            entry.target.style.animation = '';
+          }, 10);
+        }, delay + baseDelay);
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.12 });
+  }, { threshold: 0.15 });
   revealEls.forEach(el => observer.observe(el));
 }
 
-// Stagger children
-document.querySelectorAll('[data-stagger]').forEach(parent => {
-  Array.from(parent.children).forEach((child, i) => {
-    child.dataset.delay = i * 120;
-    child.classList.add('reveal');
-  });
-});
+// Smooth scroll reveal with momentum
+window.addEventListener('scroll', () => {
+  const scrollProgress = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
+  // Can be used for subtle background changes or animations
+  document.documentElement.style.setProperty('--scroll-progress', scrollProgress);
+}, { passive: true });
 
 // Mobile nav toggle
 const toggle = document.querySelector('.nav-toggle');
