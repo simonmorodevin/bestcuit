@@ -1,0 +1,18 @@
+# Ignore AI-generated folders
+.agents/
+.claude/
+.planning/
+.playwright-mcp/
+
+# Ignore legacy files in root
+index.html
+style.css
+script.js
+Visualizar.txt
+
+# Ignore mirror/archive
+bestcuit-mirror/
+
+# System files
+.DS_Store
+Thumbs.db

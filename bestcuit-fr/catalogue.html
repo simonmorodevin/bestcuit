@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catalogue — Couverts Comestibles | BESTCUIT</title>
+  <meta name="description" content="Découvrez notre gamme de couverts comestibles, véganes et biodégradables. La Touillette, La Fourchette, La Cuillère, La Palettine.">
+  <link rel="icon" href="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=32,h=32,fit=crop,f=png/ALpPMbl95zt93znw/galleta-sin-fondo-A1a5przloocRGwKr.png">
+  <link rel="stylesheet" href="css/styles.css">
+  <!-- Hreflang for international SEO -->
+  <link rel="alternate" hreflang="fr" href="https://www.bestcuit.fr/catalogue.html">
+  <link rel="alternate" hreflang="es" href="https://www.bestcuit.es/catalogo.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.bestcuit.fr/catalogue.html">
+
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+
+  <style>
+    /* ── Estilos para los modelos 3D (Añadido) ── */
+    model-viewer {
+      z-index: 1;
+      --poster-color: transparent;
+      outline: none;
+      --shadow-intensity: 1;
+      background: transparent;
+      touch-action: none;
+    }
+
+    /* Paletina 50% smaller (another 25%) - scale only the 3D model, not the container */
+    #palettine model-viewer {
+      transform: scale(0.5625);
+      transform-origin: center;
+    }
+
+    /* ── Nav seamless with hero ─────────────────────── */
+    .nav.scrolled {
+      background: var(--forest);
+      backdrop-filter: none;
+      border-bottom: none;
+    }
+
+    /* ── Catalogue ────────────────────────────────────── */
+    .catalogue-hero {
+      background: var(--forest);
+      min-height: 50vh;
+      display: flex;
+      align-items: center;
+      padding: 80px 0 60px;
+      position: relative;
+      overflow: hidden;
+    }
+    .catalogue-hero::before {
+      content: 'CATALOGUE';
+      position: absolute;
+      bottom: -20px;
+      right: -20px;
+      font-family: var(--ff-display);
+      font-size: clamp(80px, 16vw, 200px);
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      color: rgba(244, 218, 195, 0.04);
+      pointer-events: none;
+      white-space: nowrap;
+    }
+    .catalogue-hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: transparent;
+    }
+    .catalogue-hero-grain {
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
+      background-size: 200px 200px;
+      pointer-events: none;
+    }
+    /* Old label/h1/p styles replaced by shared .hero-eyebrow, .hero-title, .hero-subtitle in styles.css */
+    .catalogue-hero-content { position: relative; z-index: 3; }
+
+    /* ── Filter Bar ───────────────────────────────────── */
+    .filter-bar {
+      background: var(--white);
+      border-bottom: 1px solid rgba(212, 184, 150, 0.3);
+      padding: 20px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .filter-inner {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .filter-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-right: 8px;
+    }
+    .filter-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 18px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(212, 184, 150, 0.5);
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      background: transparent;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: var(--ff-body);
+    }
+    .filter-btn:hover, .filter-btn.active {
+      background: var(--forest);
+      color: var(--cream);
+      border-color: var(--forest);
+    }
+
+    /* ── Products ─────────────────────────────────────── */
+    .products-main {
+      padding: 100px 0;
+      background: var(--cream-soft);
+    }
+    .product-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      margin-bottom: 120px;
+      padding-bottom: 120px;
+      border-bottom: 1px solid rgba(212, 184, 150, 0.4);
+    }
+    .product-row:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+    .product-row.reverse { direction: rtl; }
+    .product-row.reverse > * { direction: ltr; }
+    .product-visual {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: var(--forest);
+      aspect-ratio: 3/4;
+      min-height: 400px;
+    }
+    .product-visual-bg {
+      position: absolute;
+      inset: 0;
+      background: transparent;
+      pointer-events: none;
+    }
+    .product-visual-num {
+      position: absolute;
+      top: 24px;
+      left: 24px;
+      z-index: 2;
+      font-family: var(--ff-display);
+      font-size: 0.8rem;
+      font-weight: 300;
+      color: rgba(244, 218, 195, 0.3);
+      letter-spacing: 0.08em;
+      pointer-events: none;
+    }
+
+    .product-detail {}
+    .product-detail-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--wheat);
+      margin-bottom: 16px;
+    }
+    .product-detail-tag::before {
+      content: '';
+      width: 20px;
+      height: 1px;
+      background: var(--wheat);
+    }
+    .product-detail h2 {
+      font-family: var(--ff-display);
+      font-size: clamp(2.5rem, 4vw, 3.5rem);
+      font-weight: 500;
+      color: var(--text);
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+      margin-bottom: 20px;
+    }
+    .product-detail h2 em { font-style: italic; color: var(--wheat); }
+    .product-detail > p {
+      font-size: 1rem;
+      color: var(--text-muted);
+      line-height: 1.75;
+      margin-bottom: 36px;
+    }
+
+    /* Features list */
+    ul.product-features {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 36px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    ul.product-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    ul.product-features li::before {
+      content: '—';
+      color: var(--wheat);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    /* Specs table */
+    .product-specs-table {
+      background: var(--white);
+      border-radius: var(--radius);
+      border: 1px solid rgba(212, 184, 150, 0.4);
+      overflow: hidden;
+      margin-bottom: 36px;
+    }
+    .specs-header {
+      padding: 14px 20px;
+      background: var(--forest);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--wheat-light);
+    }
+    .spec-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 20px;
+      border-bottom: 1px solid rgba(212, 184, 150, 0.2);
+      font-size: 0.85rem;
+    }
+    .spec-row:last-child { border-bottom: none; }
+    .spec-row dt { color: var(--text-muted); font-weight: 500; }
+    .spec-row dd { color: var(--text); font-weight: 600; }
+
+    /* Tags row */
+    .product-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 32px;
+    }
+
+    /* ── Nutrition Section ────────────────────────────── */
+    .nutrition-section {
+      background: var(--forest);
+      padding: 100px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .nutrition-bg {
+      position: absolute;
+      inset: 0;
+      background: transparent;
+    }
+    .nutrition-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+    .nutrition-content .section-label { color: var(--wheat-light); }
+    .nutrition-content .section-label::before { background: var(--wheat-light); }
+    .nutrition-content .section-title { color: var(--cream); }
+    .nutrition-content .section-title em { color: var(--wheat-light); }
+    .nutrition-content > p {
+      color: rgba(244, 218, 195, 0.6);
+      font-size: 0.95rem;
+      line-height: 1.75;
+      margin-top: 20px;
+    }
+    .ingredients-box {
+      margin-top: 28px;
+      padding: 20px 24px;
+      background: rgba(244, 218, 195, 0.05);
+      border: 1px solid rgba(215, 125, 40, 0.2);
+      border-radius: var(--radius);
+    }
+    .ingredients-box h4 {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--wheat);
+      margin-bottom: 10px;
+    }
+    .ingredients-box p {
+      font-size: 0.85rem;
+      color: rgba(244, 218, 195, 0.55);
+      line-height: 1.65;
+    }
+    .nutrition-table {
+      background: var(--cream-soft);
+      border: 1px solid rgba(212, 184, 150, 0.4);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    }
+    .nutrition-table-header {
+      padding: 24px 28px;
+      background: var(--cream);
+      border-bottom: 1px solid rgba(212, 184, 150, 0.3);
+    }
+    .nutrition-table-header h3 {
+      font-family: var(--ff-display);
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+    .nutrition-table-header p {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      letter-spacing: 0.08em;
+      font-weight: 700;
+    }
+    .nutrition-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 28px;
+      border-bottom: 1px solid rgba(212, 184, 150, 0.2);
+    }
+    .nutrition-row:last-child { border-bottom: none; }
+    .nutrition-row dt {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text-muted);
+    }
+    .nutrition-row dd {
+      font-family: var(--ff-display);
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    /* ── CTA Catalogue ────────────────────────────────── */
+    .catalogue-cta {
+      background: var(--cream-dark);
+      padding: 100px 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .catalogue-cta-bg {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: var(--ff-display);
+      font-size: clamp(80px, 18vw, 240px);
+      font-weight: 700;
+      color: rgba(255,255,255,0.4);
+      pointer-events: none;
+      white-space: nowrap;
+    }
+    .catalogue-cta-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    .catalogue-cta-inner h2 {
+      font-family: var(--ff-display);
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 500;
+      color: var(--text);
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+    .catalogue-cta-inner h2 em { font-style: italic; color: var(--wheat); }
+    .catalogue-cta-inner p {
+      color: var(--text-muted);
+      font-size: 1rem;
+      line-height: 1.7;
+      margin-bottom: 36px;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .product-row { grid-template-columns: 1fr; gap: 48px; }
+      .product-row.reverse { direction: ltr; }
+      .nutrition-inner { grid-template-columns: 1fr; gap: 48px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav scrolled" id="nav">
+    <a href="index.html" class="nav-logo">
+      <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=64,h=64,fit=crop,f=png/ALpPMbl95zt93znw/galleta-sin-fondo-A1a5przloocRGwKr.png" alt="BESTCUIT">
+      BESTCUIT
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="a-propos.html">À propos</a></li>
+      <li><a href="engagement.html">Engagement</a></li>
+      <li><a href="catalogue.html" class="active">Catalogue</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="language-switcher">
+        <a href="https://www.bestcuit.fr/catalogue.html" class="lang-link active" lang="fr">FR</a>
+        <span class="lang-separator">|</span>
+        <a href="https://www.bestcuit.es/catalogue.html" class="lang-link" lang="es">ES</a>
+      </div>
+      <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+
+  <section class="catalogue-hero section-fade-down">
+    <div class="catalogue-hero-grain"></div>
+    <div class="container">
+      <div class="hero-grid">
+        <div class="catalogue-hero-content reveal">
+          <p class="hero-eyebrow">Notre gamme</p>
+          <h1 class="hero-title">Couverts <em>comestibles,</em><br>véganes et biodégradables</h1>
+        </div>
+        <div class="hero-right">
+          <blockquote class="hero-quote">Quatre produits pensés pour le secteur HORECA — robustes, savoureux, et entièrement comestibles après utilisation.</blockquote>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main class="products-main" id="products">
+    <div class="container">
+
+      <div class="product-row reveal" id="touillette">
+        <div class="product-visual reveal-left">
+          <div class="product-visual-bg"></div>
+          <model-viewer
+            src="img/Removedor.glb"
+            alt="La Touillette comestible BESTCUIT 3D"
+            style="width: 100%; height: 100%; position: absolute; inset: 0;"
+            auto-rotate
+            camera-controls
+            shadow-intensity="1"
+            camera-orbit="0deg 75deg 105%"
+            exposure="1"
+            shadow-softness="0.7"
+            touch-action="pan-y"
+            loading="eager"
+            reveal="auto">
+          </model-viewer>
+        </div>
+        <div class="product-detail reveal-right">
+          <span class="product-detail-tag">Café &amp; Boissons chaudes</span>
+          <h2><em>La</em> Touillette</h2>
+          <p>Fini les touillettes en plastique ou en bois ! Notre agitateur à café est croquant, délicieux et parfaitement conçu pour remuer vos cafés, cappuccinos et thés. Elle résiste à la chaleur et se déguste une fois votre boisson terminée.</p>
+          <ul class="product-features">
+            <li>Saveur vanille douce — un goût agréable qui complète parfaitement votre café</li>
+            <li>Résiste jusqu'à 30 minutes dans une boisson chaude à 100 °C</li>
+          </ul>
+          <dl class="product-specs-table">
+            <div class="specs-header">Spécifications techniques</div>
+            <div class="spec-row"><dt>Longueur</dt><dd>14 cm</dd></div>
+            <div class="spec-row"><dt>Poids</dt><dd>4 g</dd></div>
+            <div class="spec-row"><dt>Saveur</dt><dd>Vanille</dd></div>
+          </dl>
+          <a href="contact.html" class="btn btn-dark">Commander</a>
+        </div>
+      </div>
+
+      <div class="product-row reverse reveal" id="fourchette">
+        <div class="product-visual reveal-right">
+          <div class="product-visual-bg"></div>
+          <model-viewer
+            src="img/Tenedor.glb"
+            alt="La Fourchette comestible BESTCUIT 3D"
+            style="width: 100%; height: 100%; position: absolute; inset: 0;"
+            auto-rotate
+            camera-controls
+            shadow-intensity="1"
+            camera-orbit="0deg 75deg 105%"
+            exposure="1"
+            shadow-softness="0.7"
+            touch-action="pan-y"
+            loading="eager"
+            reveal="auto">
+          </model-viewer>
+        </div>
+        <div class="product-detail reveal-left">
+          <span class="product-detail-tag">Salades &amp; Repas</span>
+          <h2><em>La</em> Fourchette</h2>
+          <p>Parfaite pour les poke bowls, salades et plats végétariens, notre fourchette offre une solidité remarquable. Sa structure rigide permet de piquer vos aliments avec précision — qu’il s’agisse de légumes croquants, de poisson ou de viande — garantissant une expérience de dégustation fluide jusqu'à la dernière bouchée.</p>
+          <ul class="product-features">
+            <li>Saveur nature — goût discret proche du cracker de pan, s'adapte à tous les plats</li>
+            <li>Structure solide adaptée aux repas chauds et froids</li>
+          </ul>
+          <dl class="product-specs-table">
+            <div class="specs-header">Spécifications techniques</div>
+            <div class="spec-row"><dt>Longueur</dt><dd>12 cm</dd></div>
+            <div class="spec-row"><dt>Poids</dt><dd>10 g</dd></div>
+            <div class="spec-row"><dt>Saveur</dt><dd>Nature</dd></div>
+          </dl>
+          <a href="contact.html" class="btn btn-dark">Commander</a>
+        </div>
+      </div>
+
+      <div class="product-row reveal" id="cuillere">
+        <div class="product-visual reveal-left">
+          <div class="product-visual-bg"></div>
+          <model-viewer
+            src="img/Cuchara.glb"
+            alt="La Cuillère comestible BESTCUIT 3D"
+            style="width: 100%; height: 100%; position: absolute; inset: 0;"
+            auto-rotate
+            camera-controls
+            shadow-intensity="1"
+            camera-orbit="0deg 75deg 105%"
+            exposure="1"
+            shadow-softness="0.7"
+            touch-action="pan-y"
+            loading="eager"
+            reveal="auto">
+          </model-viewer>
+        </div>
+        <div class="product-detail reveal-right">
+          <span class="product-detail-tag">Desserts &amp; Pauses sucrées</span>
+          <h2><em>La</em> Cuillère</h2>
+          <p>Notre cuillère comestible est l'alliée parfaite de vos desserts et pauses gourmandes. Elle sublime vos yaourts, compotes, desserts crémeux, bols de céréales y mueslis, apportant une touche de croquant naturel à chaque bouchée sucrée.</p>
+          <ul class="product-features">
+            <li>Saveur nature — goût discret proche du cracker de pain, s'adapte à tous les plats</li>
+            <li>Structure solide adaptée aux repas chauds et froids</li>
+          </ul>
+          <dl class="product-specs-table">
+            <div class="specs-header">Spécifications techniques</div>
+            <div class="spec-row"><dt>Longueur</dt><dd>12 cm</dd></div>
+            <div class="spec-row"><dt>Poids</dt><dd>10 g</dd></div>
+            <div class="spec-row"><dt>Saveur</dt><dd>Nature</dd></div>
+          </dl>
+          <a href="contact.html" class="btn btn-dark">Commander</a>
+        </div>
+      </div>
+
+      <div class="product-row reverse reveal" id="palettine">
+        <div class="product-visual reveal-right">
+          <div class="product-visual-bg"></div>
+          <model-viewer
+            src="img/Paletina.glb"
+            alt="La Palettine comestible BESTCUIT 3D"
+            style="width: 100%; height: 100%; position: absolute; inset: 0;"
+            scale="0.9 0.9 0.9"
+            loading="eager"
+            reveal="auto"
+            auto-rotate
+            camera-controls
+            shadow-intensity="1"
+            camera-orbit="0deg 75deg 150%"
+            exposure="1"
+            shadow-softness="0.7"
+            touch-action="pan-y">
+          </model-viewer>
+        </div>
+        <div class="product-detail reveal-left">
+          <span class="product-detail-tag">Glaces &amp; Sorbets</span>
+          <h2><em>La</em> Palettine</h2>
+          <p>Notre palettine comestible est spécialement conçue pour déguster les glaces, sorbets, yaourts glacés et autres douceurs rafraîchissantes. Elle remplace élégamment les petites cuillères en plastique ou en bois.</p>
+          <ul class="product-features">
+            <li>Saveur vanille — une touche sucrée qui sublime chaque bouchée de glace</li>
+            <li>Format compact et résistant, parfait pour les tarrines et cornets</li>
+          </ul>
+          <dl class="product-specs-table">
+            <div class="specs-header">Spécifications techniques</div>
+            <div class="spec-row"><dt>Longueur</dt><dd>6,5 cm</dd></div>
+            <div class="spec-row"><dt>Poids</dt><dd>6 g</dd></div>
+            <div class="spec-row"><dt>Saveur</dt><dd>Vanille</dd></div>
+          </dl>
+          <a href="contact.html" class="btn btn-dark">Commander</a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <section class="nutrition-section section-fade-down-dark">
+    <div class="nutrition-bg"></div>
+    <div class="container">
+      <div class="nutrition-inner">
+        <div class="nutrition-content reveal-left">
+          <div class="section-label">Composition</div>
+          <h2 class="section-title">Des ingrédients <em>vrais</em></h2>
+          <p>Tous nos couverts sont formulés à base de plantes, sans allergènes majeurs.</p>
+          <div class="ingredients-box">
+            <h4>Ingrédients</h4>
+            <p>Farine de riz, huiles végétales, amidon de maïs, amidon de tapioca, fécule de pomme de terre, fibre de bambou, épaississants (gomme xanthane), sel marin, poudres à lever (bicarbonate d'ammonium, bicarbonate de sodium), arôme et lécithine de tournesol.</p>
+          </div>
+        </div>
+        <div class="nutrition-table reveal-right">
+          <div class="nutrition-table-header">
+            <h3>Informations nutritionnelles</h3>
+            <p>VALEURS POUR 100 G</p>
+          </div>
+          <dl>
+            <div class="nutrition-row"><dt>Énergie</dt><dd>1770 kJ / 420 kcal</dd></div>
+            <div class="nutrition-row"><dt>Graisses</dt><dd>9,4 g</dd></div>
+            <div class="nutrition-row"><dt>Acides gras saturés</dt><dd>4,2 g</dd></div>
+            <div class="nutrition-row"><dt>Glucides</dt><dd>72,5 g</dd></div>
+            <div class="nutrition-row"><dt>Sucres</dt><dd>3,2 g</dd></div>
+            <div class="nutrition-row"><dt>Protéines</dt><dd>4,8 g</dd></div>
+            <div class="nutrition-row"><dt>Fibres</dt><dd>2,1 g</dd></div>
+            <div class="nutrition-row"><dt>Sel</dt><dd>0,15 g</dd></div>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="catalogue-cta">
+    <div class="catalogue-cta-bg">Commander</div>
+    <div class="container">
+      <div class="catalogue-cta-inner">
+        <h2>Prêt à tester <em>BESTCUIT</em>?</h2>
+        <a href="contact.html" class="btn btn-dark">Demander un devis</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=64,h=64,fit=crop,f=png/ALpPMbl95zt93znw/galleta-sin-fondo-A1a5przloocRGwKr.png" alt="BESTCUIT">
+            BESTCUIT
+          </div>
+          <p>Des couverts comestibles, délicieux et écolos. Transformez vos pauses gourmandes avec des ustensiles 100% biodégradables.</p>
+          <div class="footer-social">
+            <a href="https://www.instagram.com/bestcuit.fr/" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=61582842930568" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/company/bestcuit/posts/?feedView=all" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="a-propos.html">À propos</a></li>
+            <li><a href="engagement.html">Engagement</a></li>
+            <li><a href="catalogue.html">Catalogue</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Produits</h4>
+          <ul>
+            <li><a href="catalogue.html#touillette">La Touillette</a></li>
+            <li><a href="catalogue.html#fourchette">La Fourchette</a></li>
+            <li><a href="catalogue.html#cuillere">La Cuillère</a></li>
+            <li><a href="catalogue.html#palettine">La Palettine</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <div class="footer-contact-item">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            contact@bestcuit.fr
+          </div>
+          <div class="footer-contact-item">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.6a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.61 3h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 10.6a16 16 0 0 0 6 6l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17z"/></svg>
+            +33 769 71 06 27
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>BESTCUIT — Éco-innovation &amp; Saveur</p>
+        <div class="footer-bottom-links">
+          <a href="politique-de-confidentialite.html">Politique de confidentialité</a>
+          <a href="conditions-generales.html">Conditions générales</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+
+  <script>
+    document.querySelectorAll('model-viewer').forEach(viewer => {
+      // Remove camera-controls to prevent default interaction
+      viewer.removeAttribute('camera-controls');
+
+      let isPointerDown = false;
+      let lastX = 0;
+      let currentTheta = 0; // Track horizontal rotation angle
+
+      // Extract initial theta from camera-orbit attribute
+      const initialOrbit = viewer.getAttribute('camera-orbit');
+      if (initialOrbit) {
+        const parts = initialOrbit.split(' ');
+        currentTheta = parseFloat(parts[0]) || 0;
+      }
+
+      // Prevent all zoom (wheel, pinch)
+      viewer.addEventListener('wheel', (e) => {
+        e.preventDefault();
+      }, { passive: false });
+
+      viewer.addEventListener('touchmove', (e) => {
+        if (e.touches && e.touches.length > 1) {
+          e.preventDefault();
+        }
+      }, { passive: false });
+
+      // Custom horizontal rotation with pointer events
+      viewer.addEventListener('pointerdown', (e) => {
+        isPointerDown = true;
+        lastX = e.clientX;
+        e.preventDefault();
+      }, { passive: false });
+
+      viewer.addEventListener('pointermove', (e) => {
+        if (!isPointerDown) return;
+
+        const deltaX = e.clientX - lastX;
+        currentTheta -= deltaX * 0.5; // Rotation sensitivity (inverted direction)
+
+        // Update camera orbit: keep theta changing, keep phi at 75deg, keep radius at 105%
+        viewer.setAttribute('camera-orbit', `${currentTheta}deg 75deg 105%`);
+
+        lastX = e.clientX;
+        e.preventDefault();
+      }, { passive: false });
+
+      viewer.addEventListener('pointerup', () => {
+        isPointerDown = false;
+      });
+
+      viewer.addEventListener('pointerleave', () => {
+        isPointerDown = false;
+      });
+    });
+  </script>
+</body>
+</html>
