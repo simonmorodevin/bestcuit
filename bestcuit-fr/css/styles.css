@@ -1,4 +1,4 @@
-/* ═══════════════════════════════════════════════════════
+﻿/* ═══════════════════════════════════════════════════════
    BESTCUIT — Design System
    Aesthetic: Parisian artisan boulangerie meets eco-innovation
    Palette: Warm brown — #FBF2E9 → #160C04
@@ -760,20 +760,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 /* ── Web 10/10 Micro-UX & Performance Additions ──────── */
 
-/* Fade-in with blur for Hero titles */
-.hero-title, .reveal-title {
-  animation: fadeInBlur 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  opacity: 0;
-  filter: blur(8px);
-  transform: translateY(20px);
-}
-@keyframes fadeInBlur {
-  to {
-    opacity: 1;
-    filter: blur(0);
-    transform: translateY(0);
-  }
-}
+
 
 /* Shimmer effect for primary buttons */
 .btn-primary {
@@ -807,3 +794,4 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   content-visibility: auto;
   contain-intrinsic-size: 1000px;
 }
+
