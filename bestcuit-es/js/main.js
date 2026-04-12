@@ -106,7 +106,7 @@ magneticEls.forEach(el => {
     const rect = el.getBoundingClientRect();
     const x = e.clientX - rect.left - rect.width / 2;
     const y = e.clientY - rect.top - rect.height / 2;
-    el.style.transform = 	ranslate( + (x * 0.2) + px,  + (y * 0.2) + px);
+    el.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
   });
   el.addEventListener('mouseleave', () => {
     el.style.transform = 'translate(0, 0)';
