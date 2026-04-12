@@ -334,8 +334,8 @@
       justify-content: space-between;
       margin-bottom: 64px;
     }
-    .products-header .section-label { color: var(--wheat-light); }
-    .products-header .section-label::before { background: var(--wheat-light); }
+    
+    
     .products-header .section-title { color: var(--cream); }
     .products-grid {
       display: grid;
@@ -610,17 +610,9 @@
       max-width: 760px;
       margin: 0 auto;
     }
-    .cta-inner .section-label {
-      justify-content: center;
-    }
-    .cta-inner .section-label::before { display: none; }
-    .cta-inner .section-label::after {
-      content: '';
-      display: block;
-      width: 24px;
-      height: 1px;
-      background: var(--wheat);
-    }
+    
+    
+    
     .cta-inner h2 {
       font-family: var(--ff-display);
       font-size: clamp(2.8rem, 5.5vw, 5rem);
@@ -854,7 +846,7 @@
   <section class="why-section section-fade-down-dark">
     <div class="container">
       <div class="reveal" style="text-align:center; margin-bottom: 48px;">
-        <div class="section-label" style="justify-content:center;">
+        <div class="section-label section-label-center">
           Pourquoi nous choisir
           
         </div>
@@ -931,7 +923,7 @@
     <div class="container">
       <div class="products-header">
         <div class="reveal-left">
-          <div class="section-label" style="color:var(--wheat-light);">
+          <div class="section-label section-label-center">
             <span style="background:var(--wheat-light);display:block;width:24px;height:1px;margin-right:8px;"></span>
             Notre catalogue
           </div>
@@ -1041,7 +1033,7 @@
   <section class="gallery-section section-fade-down-dark">
     <div class="container">
       <div class="reveal" style="text-align:center;">
-        <div class="section-label" style="justify-content:center;">
+        <div class="section-label section-label-center">
           BESTCUIT en action
           
         </div>
@@ -1097,7 +1089,7 @@
   <section class="process-section section-fade-down-dark">
     <div class="container">
       <div class="reveal" style="text-align:center;">
-        <div class="section-label" style="justify-content:center;">
+        <div class="section-label section-label-center">
           
           Démarrez maintenant
         </div>
@@ -1215,6 +1207,8 @@
   <script src="js/main.js"></script>
 </body>
 </html>
+
+
 
 
 

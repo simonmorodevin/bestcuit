@@ -78,7 +78,7 @@
       gap: 80px;
       align-items: center;
     }
-    .zero-content .section-label { margin-bottom: 16px; }
+    
     .zero-content h2 {
       font-family: var(--ff-display);
       font-size: clamp(2.5rem, 4.5vw, 3.8rem);
@@ -153,15 +153,8 @@
       z-index: 2;
       text-align: center;
     }
-    .tech-inner .section-label { color: var(--wheat-light); justify-content: center; }
-    .tech-inner .section-label::before,
-    .tech-inner .section-label::after {
-      content: '';
-      width: 24px;
-      height: 1px;
-      background: var(--wheat-light);
-      display: block;
-    }
+    
+    
     .tech-inner h2 {
       font-family: var(--ff-display);
       font-size: clamp(2.5rem, 5vw, 4rem);
@@ -228,10 +221,7 @@
     .odd-content {
       text-align: center;
     }
-    .odd-content .section-label { 
-      margin: 0 auto 16px; 
-      justify-content: center;
-    }
+    
     .odd-content h2 {
       font-family: var(--ff-display);
       font-size: clamp(2.2rem, 4vw, 3.2rem);
@@ -494,7 +484,7 @@
 </head>
 <body>
 
-  <!-- NAVIGATION -->
+  <!-- Navegación -->
   <nav class="nav scrolled" id="nav">
     <a href="index.html" class="nav-logo">
       <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=64,h=64,fit=crop,f=png/ALpPMbl95zt93znw/galleta-sin-fondo-A1a5przloocRGwKr.png" alt="BESTCUIT">
@@ -540,61 +530,8 @@
     <div class="container">
       <div class="zero-grid">
         <div class="zero-content reveal-left">
-          <div class="section-label">Concepto</div>
-          <h2>El café se vuelve<br>una pausa <em>sostenible</em></h2>
-          <p>Nuestros productos no son simples cubiertos: son utensilios comestibles diseñados para no dejar residuos. Sin plástico, sin basura.</p>
-          <p>Cada cubierto BESTCUIT sigue un ciclo perfectamente circular: fabricado, usado y finalmente degustado o compostado. Nada queda, todo vuelve a la naturaleza.</p>
-          <div class="mantra">Utiliza. Come. Sonríe.</div>
-        </div>
-        <div class="zero-visual reveal-right">
-          <div class="zero-img">
-            <img
-              src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1024,h=1536,fit=crop/ALpPMbl95zt93znw/gemini_generated_image_gifnw4gifnw4gifn-v6pynmeLlk09nvXH.png"
-              alt="BESTCUIT en action"
-              loading="lazy"
-            >
-          </div>
-          <div class="zero-img">
-            <img
-              src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=768,h=1052,fit=crop/ALpPMbl95zt93znw/generated-image-november-20-2025---10_50am-3K3eS4PYHrMR8ciM.png"
-              alt="BESTCUIT"
-              loading="lazy"
-            >
-          </div>
-          <div class="zero-img">
-            <img
-              src="img/cuchara vivo gazpacho.png"
-              alt="Cuchara comestible en gazpacho"
-              loading="lazy"
-            >
-          </div>
-          <div class="zero-img">
-            <img
-              src="img/taza cafe removedor completa.png"
-              alt="Taza de café con removedor BESTCUIT"
-              loading="lazy"
-            >
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- TECHNOLOGY -->
-  <section class="tech-section section-fade-down">
-    <div class="tech-bg"></div>
-    <div class="tech-grain"></div>
-    <div class="container">
-      <div class="tech-inner">
-        <div class="section-label reveal">Tecnología</div>
-        <h2 class="reveal">Tecnología limpia<br><em>e I+D comprometida</em></h2>
-        <p class="reveal">Formulados a base de plantas, sin alérgenos ni gluten, desarrollados para ser prácticos y sabrosos.</p>
-        <div class="tech-cards" data-stagger>
-          <div class="tech-card">
-            <span class="icon"></span>
-            <h4>Base vegetal</h4>
-            <p>Formulados exclusivamente a partir de ingredientes de origen vegetal. Sin productos animales en nuestra receta.</p>
-          </div>
+          <div class="section-label section-label-center"><h4>Base vegetal</h4>
+            <p>Formulados exclusivamente a partir de ingredientes de origen vegetal. Sin productos animales en nuestra receta.</p></div>
           <div class="tech-card">
             <span class="icon"></span>
             <h4>Sin alérgenos mayores</h4>
@@ -786,6 +723,9 @@
   <script src="js/main.js"></script>
 </body>
 </html>
+
+
+
 
 
 
