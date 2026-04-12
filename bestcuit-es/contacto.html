@@ -583,24 +583,7 @@
   </main>
 
   <!-- CONTACT FOOTER STRIP -->
-  <section class="contact-footer-strip">
-    <div class="container">
-      <div class="contact-footer-grid">
-        <div class="cfooter-item reveal">
-          <h4>Réponse rapide</h4>
-          <p>Respondemos a todas las solicitudes en <strong>24 h laborables</strong></p>
-        </div>
-        <div class="cfooter-item reveal" style="transition-delay:0.12s;">
-          <h4>Premier mois d'essai</h4>
-          <p>Prueba BESTCUIT en tu establecimiento <strong>sin compromiso</strong></p>
-        </div>
-        <div class="cfooter-item reveal" style="transition-delay:0.24s;">
-          <h4>Formation incluse</h4>
-          <p>Formacion de tu equipo en <strong>15 minutos</strong>, kit de comunicacion incluido</p>
-        </div>
-      </div>
-    </div>
-  </section>
+  
 
   <!-- FOOTER -->
   <footer class="footer">
@@ -690,12 +673,12 @@
       // Prepare UI for loading
       const originalBtnText = submitBtn.innerHTML;
       submitBtn.disabled = true;
-      submitBtn.innerHTML = 'Enviando...';
+      submitBtn.innerHTML = "Enviando...";
 
       try {
         const formData = new FormData(form);
         const data = Object.fromEntries(formData.entries());
-        data.lang = 'fr'; // Identification for the API
+        data.lang = 'es'; // Identification for the API
 
         const response = await fetch('/api/contact', {
           method: 'POST',
@@ -724,6 +707,7 @@
   </script>
 </body>
 </html>
+
 
 
 
