@@ -335,14 +335,14 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 
 /* Blur reveal - elements that fade from blur */
-.reveal-blur {
+.reveal-blur { will-change: filter, transform, opacity;
   opacity: 0;
   filter: blur(10px);
   transition: opacity 1s var(--ease-out-expo), filter 1s var(--ease-out-expo);
 }
 .reveal-blur.revealed {
   opacity: 1;
-  filter: blur(0);
+  filter: blur(0px);
 }
 
 /* ── Footer ────────────────────────────────────────── */
@@ -794,4 +794,6 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   content-visibility: auto;
   contain-intrinsic-size: 1000px;
 }
+
+
 
