@@ -73,7 +73,7 @@ export default async function handler(req, res) {
   try {
     // 4. Send email to Simon
     await resend.emails.send({
-      from: 'Bestcuit Web <onboarding@resend.dev>',
+      from: 'Bestcuit Web <contact@bestcuit.fr>',
       to: 'simon.moro-devin@bestcuit.fr',
       subject: `[Bestcuit Web] Nouveau message: ${cleanCompany}`,
       html: `
@@ -102,7 +102,7 @@ export default async function handler(req, res) {
       : `<p>Bonjour,</p><p>Nous avons bien reçu votre message. Notre équipe vous contactera dans les 24 heures ouvrées.</p><p>Cordialement,<br><strong>L'équipe Bestcuit</strong></p>`;
 
     await resend.emails.send({
-      from: 'Bestcuit <onboarding@resend.dev>',
+      from: 'Bestcuit <contact@bestcuit.fr>',
       to: email,
       subject: confirmSubject,
       html: `
