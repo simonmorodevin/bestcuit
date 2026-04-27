@@ -21,6 +21,20 @@ function escapeHTML(str) {
 }
 
 export default async function handler(req, res) {
+  // Configuración de CORS para permitir peticiones desde bestcuit.es
+  res.setHeader('Access-Control-Allow-Credentials', true);
+  res.setHeader('Access-Control-Allow-Origin', '*'); 
+  res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT');
+  res.setHeader(
+    'Access-Control-Allow-Headers',
+    'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
+  );
+
+  // Manejo de la petición "preflight" OPTIONS
+  if (req.method === 'OPTIONS') {
+    return res.status(200).end();
+  }
+
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
@@ -93,10 +107,10 @@ export default async function handler(req, res) {
     });
 
     // 5. Send confirmation email to Customer
-    const confirmSubject = lang === 'es' 
-      ? 'Gracias por contactar con Bestcuit' 
+    const confirmSubject = lang === 'es'
+      ? 'Gracias por contactar con Bestcuit'
       : 'Merci d\'avoir contacté Bestcuit';
-    
+
     const confirmMessage = lang === 'es'
       ? `<p>Hola,</p><p>Hemos recibido correctamente tu mensaje. Nuestro equipo se pondrá en contacto contigo en un plazo de 24 horas laborables.</p><p>Saludos,<br><strong>El equipo de Bestcuit</strong></p>`
       : `<p>Bonjour,</p><p>Nous avons bien reçu votre message. Notre équipe vous contactera dans les 24 heures ouvrées.</p><p>Cordialement,<br><strong>L'équipe Bestcuit</strong></p>`;
@@ -123,8 +137,6 @@ export default async function handler(req, res) {
     return res.status(200).json({ success: true });
   } catch (error) {
     console.error('Resend error:', error);
-    // Extraemos el mensaje real de error de Resend si existe
-    const errorMsg = error.message || error.name || 'Failed to send email';
-    return res.status(500).json({ error: 'Error de Resend: ' + errorMsg, fullError: error });
+    return res.status(500).json({ error: 'Failed to send email' });
   }
 }

@@ -699,7 +699,7 @@
         const data = Object.fromEntries(formData.entries());
         data.lang = 'es'; // Identification for the API
 
-        const response = await fetch('/api/contact', {
+        const response = await fetch('https://www.bestcuit.fr/api/contact', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
