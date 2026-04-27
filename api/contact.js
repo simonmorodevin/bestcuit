@@ -21,14 +21,10 @@ function escapeHTML(str) {
 }
 
 export default async function handler(req, res) {
-  // Configuración de CORS para permitir peticiones desde bestcuit.es
-  res.setHeader('Access-Control-Allow-Credentials', true);
+  // Configuración de CORS más robusta
   res.setHeader('Access-Control-Allow-Origin', '*'); 
-  res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT');
-  res.setHeader(
-    'Access-Control-Allow-Headers',
-    'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
-  );
+  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
 
   // Manejo de la petición "preflight" OPTIONS
   if (req.method === 'OPTIONS') {
