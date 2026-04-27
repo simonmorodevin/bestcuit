@@ -1,4 +1,5 @@
 import { Resend } from 'resend';
+// Deployment version: 1.0.2 - Fixed CORS for Spanish domain
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
